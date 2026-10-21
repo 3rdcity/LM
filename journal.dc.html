@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stillwell — Journal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F6F0}
+a{color:#4A5022}a:hover{color:#1E2014}
+em.s{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400}
+html{scroll-behavior:smooth}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes reveal{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+header > nav{animation:fadeUp .7s ease both}
+main > section:first-of-type > *{animation:fadeUp 1s ease .1s both}
+main > section:first-of-type > *:nth-child(2){animation-delay:.3s}
+article{animation:fadeUp .6s ease both}
+article img{transition:filter .5s ease}
+article:hover img{filter:brightness(1.05) saturate(1.05)}
+a,button{transition:transform .3s ease,background-color .3s ease,color .3s ease,border-color .3s ease,box-shadow .3s ease}
+a[style*="999px"]:hover,button[style*="999px"]:hover,a[style*="50%"]:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(30,32,20,.12)}
+a:active,button:active{transform:scale(.98)}
+a svg{transition:transform .3s ease}
+a:hover svg[width="176"]{transform:translateX(6px)}
+@supports (animation-timeline: view()){
+article{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
+}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+input{font:inherit}
+</style>
+</helmet>
+
+<div style="font-family: 'Inter Tight', system-ui, sans-serif; color: #1E2014; background: #F6F6F0; width: 100%">
+
+<!-- HEADER -->
+<header style="background: #F6F6F0; border-bottom: 1px solid #E1E3D6">
+  <nav style="max-width: 1240px; margin: 0 auto; padding: 22px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px">
+    <a href="home.dc.html" style="color: #1E2014; text-decoration: none; font-size: 26px; font-weight: 500; letter-spacing: -0.02em">Still<em class="s">well</em></a>
+    <div style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 14px">
+      <a href="home.dc.html#about" style="color: #4E5A55; text-decoration: none">About</a>
+      <a href="home.dc.html#services" style="color: #4E5A55; text-decoration: none">Services</a>
+      <a href="home.dc.html#team" style="color: #4E5A55; text-decoration: none">Therapists</a>
+      <a href="journal.dc.html" aria-current="page" style="color: #1E2014; text-decoration: none; font-weight: 500">Journal</a>
+    </div>
+    <a href="home.dc.html#book" style="background: {{accent}}; color: #FFFFFF; text-decoration: none; padding: 12px 22px; border-radius: 999px; font-size: 14px; font-weight: 500">Book a session</a>
+  </nav>
+</header>
+
+<main>
+<!-- INTRO -->
+<section style="max-width: 1240px; margin: 0 auto; padding: 80px 24px 48px; box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px">
+  <div style="display: flex; flex-direction: column; gap: 16px; max-width: 640px">
+    <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #5C6235">The journal</span>
+    <h1 style="margin: 0; font-size: clamp(42px, 5.5vw, 72px); line-height: 1.02; font-weight: 400; letter-spacing: -0.03em">Notes for the <em class="s">in-between</em> days</h1>
+  </div>
+  <p style="margin: 0; max-width: 380px; font-size: 16px; line-height: 1.65; color: #4E5A55">Practical ideas and honest reflections from our therapists. Short reads, written for real life.</p>
+</section>
+
+<!-- FEATURED -->
+
+
+<!-- FILTER + GRID -->
+<section style="background: #FFFFFF; padding: 80px 24px 104px">
+  <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px">
+      <h2 style="margin: 0; font-size: clamp(28px, 3vw, 38px); font-weight: 400; letter-spacing: -0.025em">Latest <em class="s">articles</em></h2>
+      <div role="group" aria-label="Filter by topic" style="display: flex; flex-wrap: wrap; gap: 8px">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="6">
+          <button type="button" onClick="{{ f.pick }}" aria-pressed="{{ f.pressed }}" style="{{ f.style }}">{{ f.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 56px 40px">
+      <sc-for list="{{ posts }}" as="p" hint-placeholder-count="6">
+        <article style="display: flex; flex-direction: column">
+          <img src="{{ p.img }}" alt="{{ p.alt }}" style="{{ p.imgStyle }}">
+          <div style="position: relative; margin: -40px 56px 0 0; background: #FFFFFF; padding: 0 0 8px 40px; display: flex; flex-direction: column; gap: 20px">
+            <a href="#" style="align-self: flex-start; background: {{accent}}; color: #FFFFFF; text-decoration: none; padding: 10px 28px; font-size: 14px; letter-spacing: 0.06em">{{ p.tag }}</a>
+            <h3 style="margin: 0 0 0 -40px; padding-left: 35px; border-left: 5px solid {{accent}}; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.15"><a href="{{ p.href }}" style="color: #1E2014; text-decoration: none">{{ p.title }}</a></h3>
+            <span style="font-size: 13px; color: #5A6661">[Date] · [0] min read</span>
+            <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #4E5A55">{{ p.excerpt }}</p>
+            <a href="{{ p.href }}" style="align-self: flex-start; display: flex; flex-direction: column; gap: 10px; color: #4E5A55; text-decoration: none; font-size: 13px; letter-spacing: 0.14em">READ MORE<svg width="176" height="8" viewBox="0 0 176 8" fill="none" stroke="#4E5A55" stroke-width="1.2" aria-hidden="true"><path d="M0 4h174M170 1l4 3-4 3"></path></svg></a>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+      <p style="margin: 0; text-align: center; font-size: 16px; color: #5A6661">No articles in this topic yet. Check back soon.</p>
+    </sc-if>
+
+    <nav aria-label="Pagination" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; padding-top: 16px; border-top: 1px solid #E4E6DA">
+      <a href="#" aria-current="page" style="width: 44px; height: 44px; border-radius: 50%; background: {{accent}}; color: #FFFFFF; text-decoration: none; display: flex; align-items: center; justify-content: center; font-size: 14px; margin-top: 24px">1</a>
+      <a href="#" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #D6D9C4; color: #1E2014; text-decoration: none; display: flex; align-items: center; justify-content: center; font-size: 14px; margin-top: 24px">2</a>
+      <a href="#" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #D6D9C4; color: #1E2014; text-decoration: none; display: flex; align-items: center; justify-content: center; font-size: 14px; margin-top: 24px">3</a>
+      <a href="#" style="height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #D6D9C4; color: #1E2014; text-decoration: none; display: flex; align-items: center; font-size: 14px; margin-top: 24px">Next →</a>
+    </nav>
+  </div>
+</section>
+</main>
+
+<!-- NEWSLETTER + FOOTER -->
+<footer style="background: #24261A; color: #FFFFFF; padding: 80px 24px 32px">
+  <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; align-items: flex-end">
+      <div style="display: flex; flex-direction: column; gap: 12px; max-width: 460px">
+        <span style="font-size: clamp(30px, 3.4vw, 44px); font-weight: 400; letter-spacing: -0.025em; line-height: 1.1">Gentle reads, <em class="s">once a month</em></span>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #C9CCB3">New articles and practical ideas from our therapists. No spam.</p>
+      </div>
+      <form style="display: flex; flex-direction: column; gap: 10px; flex: 0 1 440px">
+        <label for="nl3" style="font-size: 13px; color: #D6D9BE">Email address</label>
+        <div style="display: flex; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px">
+          <input id="nl3" type="email" placeholder="you@email.com" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #FFFFFF; font-size: 15px; padding: 10px 0">
+          <button type="button" style="background: #FFFFFF; color: #1E2014; border: 0; padding: 11px 22px; border-radius: 999px; font-size: 13px; font-weight: 500; cursor: pointer">Subscribe</button>
+        </div>
+      </form>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 24px; font-size: 12px; color: #B3B79A">
+      <a href="home.dc.html" style="color: #FFFFFF; text-decoration: none; font-size: 22px; font-weight: 500; letter-spacing: -0.02em">Still<em class="s">well</em></a>
+      <span>© 2026 Stillwell. All rights reserved.</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px"><a href="#" style="color: #B3B79A; text-decoration: none">Terms</a><a href="#" style="color: #B3B79A; text-decoration: none">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#636B2F","options":["#636B2F","#1E2014","#7A5A3A","#3B5B7A"]},"$preview":{"width":1440,"height":3900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { topic: 'All' };
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#636B2F';
+    const topics = ['All', 'Anxiety', 'Relationships', 'Self-care', 'Mindfulness', 'Grief'];
+    const pillBase = 'min-height: 44px; padding: 0 18px; border-radius: 999px; font-size: 14px; cursor: pointer; font-family: inherit; ';
+    const filters = topics.map((t) => {
+      const on = this.state.topic === t;
+      return {
+        label: t,
+        pressed: on ? 'true' : 'false',
+        style: pillBase + (on
+          ? 'background: ' + accent + '; color: #FFFFFF; border: 1px solid ' + accent + ';'
+          : 'background: #FFFFFF; color: #1E2014; border: 1px solid #D6D9C4;'),
+        pick: () => this.setState({ topic: t }),
+      };
+    });
+    const imgBase = 'display: block; width: 100%; height: 300px; object-fit: cover; background: #D3D6BF; object-position: ';
+    const all = [
+      { tag: 'Relationships', title: 'How to argue without losing each other', excerpt: "Conflict isn't the problem. It's what happens in the ten minutes after.", img: '../images/kneeling-prayer.jpg', alt: 'A woman kneeling on grass with hands clasped, eyes lowered', pos: 'center 50%' },
+      { tag: 'Self-care', title: "Rest isn't a reward. It's part of the work", excerpt: "If you only slow down once you've earned it, you'll rarely slow down.", img: '../images/self-hug-sunlight.jpg', alt: 'A woman hugging herself, eyes closed, face turned toward the sun', pos: 'center 22%' },
+      { tag: 'Mindfulness', title: 'Learning to pause before you react', excerpt: 'The space between a feeling and what you do next is smaller than you think. And easier to widen.', img: '../images/eyes-closed-sunlight.jpg', alt: 'A woman with eyes closed, enjoying the sun outdoors', pos: 'center 28%' },
+      { tag: 'Grief', title: "Grief doesn't keep to a timetable", excerpt: "There's no right way or right speed. Some gentle ideas for the harder days.", img: '../images/garden-pergola.png', alt: 'A quiet garden path under a vine-covered pergola', pos: 'center 50%' },
+      { tag: 'Anxiety', title: 'Small anchors for uncertain seasons', excerpt: 'When everything feels unsettled, a few fixed points in your week can steady you.', img: '../images/tree-sunset.jpg', alt: 'A lone tree in a meadow at sunset', pos: 'center 50%' },
+      { tag: 'Self-care', title: 'Talking to yourself like a friend would', excerpt: "Most of us are kinder to others than to ourselves. Here's how to close that gap.", img: '../images/portrait-smiling-field.jpg', alt: 'A woman smiling softly in a sunlit field', pos: 'center 25%' },
+    ];
+    const posts = all
+      .filter((p) => this.state.topic === 'All' || p.tag === this.state.topic)
+      .map((p) => ({ ...p, href: '#', imgStyle: imgBase + p.pos + ';' }));
+    return { accent, filters, posts, empty: posts.length === 0 };
+  }
+}
+</script>
+</body>
+</html>

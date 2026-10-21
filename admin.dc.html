@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Admin – Blog posts</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F6F0}
+a{color:#4A5022}a:hover{color:#1E2014}
+em.s{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+a,button{transition:transform .2s ease,background-color .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease}
+aside nav a:not([aria-current]):hover{background:rgba(255,255,255,.06)}
+section[aria-label="Posts"] button:hover{transform:translateX(3px);box-shadow:0 4px 14px rgba(30,32,20,.06)}
+button[style*="999px"]:hover,a[style*="999px"]:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(30,32,20,.12)}
+button:active,a:active{transform:scale(.98)}
+[role="toolbar"] button:hover{background:#E4E6DA!important}
+[role="tab"]:hover{color:#4A5022!important}
+section[aria-label="Posts"] > *{animation:fadeUp .35s ease both}
+section[aria-label="Edit post"]{animation:fadeIn .4s ease both}
+[role="status"]{animation:fadeUp .3s ease both}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+input,select,textarea,button{font:inherit}
+input:focus,select:focus,textarea:focus{outline:2px solid #636B2F;outline-offset:1px}
+</style>
+</helmet>
+
+<div style="font-family: 'Inter Tight', system-ui, sans-serif; color: #1E2014; background: #F6F6F0; width: 100%; min-height: 100vh; display: flex; flex-wrap: wrap; align-items: stretch">
+
+  <!-- SIDEBAR -->
+  <aside style="flex: 1 1 232px; max-width: 100%; background: #24261A; color: #FFFFFF; padding: 28px 18px; box-sizing: border-box; display: flex; flex-direction: column; gap: 32px">
+    <div style="display: flex; align-items: baseline; gap: 10px; padding: 0 10px">
+      <span style="font-size: 26px; font-weight: 500"><em class="s">Leya.M</em></span>
+      <span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #B3B79A">Admin</span>
+    </div>
+    <nav aria-label="Admin" style="display: flex; flex-direction: column; gap: 4px; font-size: 14px">
+      <a href="#" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C9CCB3; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"></rect><rect x="14" y="3" width="7" height="5" rx="1.5"></rect><rect x="14" y="12" width="7" height="9" rx="1.5"></rect><rect x="3" y="16" width="7" height="5" rx="1.5"></rect></svg>Dashboard</a>
+      <a href="#" aria-current="page" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: rgba(255,255,255,0.1); color: #FFFFFF; text-decoration: none; font-weight: 500"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 4h16v16H4z"></path><path d="M8 8h8M8 12h8M8 16h5"></path></svg>Blog posts</a>
+      <a href="#" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C9CCB3; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"></path><path d="M14 3v5h5"></path></svg>Pages</a>
+      <a href="#" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C9CCB3; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-8 8"></path></svg>Media</a>
+      <a href="#" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C9CCB3; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>Messages</a>
+      <a href="#" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C9CCB3; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M3 20c.8-3.5 3.3-5 6-5s5.2 1.5 6 5"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 15c1.6.6 2.6 2.2 3 5"></path></svg>Subscribers</a>
+      <a href="#" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C9CCB3; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg>Settings</a>
+    </nav>
+    <div style="margin-top: auto; display: flex; align-items: center; gap: 12px; padding: 14px 10px 0; border-top: 1px solid rgba(255,255,255,0.12)">
+      <span style="width: 38px; height: 38px; border-radius: 50%; background: #C5C9A4; flex-shrink: 0"></span>
+      <span style="display: flex; flex-direction: column; font-size: 13px"><span style="font-weight: 500">[Admin name]</span><a href="home.dc.html" style="color: #B3B79A; text-decoration: none; font-size: 12px">View site ↗</a></span>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+
+    <!-- TOP BAR -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <h1 style="margin: 0; font-size: 30px; font-weight: 400; letter-spacing: -0.02em">Blog <em class="s">posts</em></h1>
+        <span style="font-size: 13px; color: #5A6661">{{ countLabel }}</span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+        <label style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #DDE0CF; width: 260px; max-width: 100%; box-sizing: border-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5A6661" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+          <span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Search posts</span>
+          <input type="search" placeholder="Search posts" value="{{ query }}" onChange="{{ setQuery }}" style="flex: 1; min-width: 0; border: 0; background: transparent; font-size: 14px; color: #1E2014; outline: none">
+        </label>
+        <button type="button" onClick="{{ newPost }}" style="min-height: 44px; display: flex; align-items: center; gap: 8px; background: {{accent}}; color: #FFFFFF; border: 0; padding: 0 20px; border-radius: 999px; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>New post</button>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div role="tablist" aria-label="Filter by status" style="display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid #DDE0CF">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+        <button type="button" role="tab" aria-selected="{{ t.selected }}" onClick="{{ t.pick }}" style="{{ t.style }}">{{ t.label }} <span style="font-size: 12px; color: #5A6661">{{ t.count }}</span></button>
+      </sc-for>
+    </div>
+
+    <!-- TWO PANES -->
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+
+      <!-- LIST -->
+      <section aria-label="Posts" style="flex: 1 1 340px; max-width: 100%; display: flex; flex-direction: column; gap: 8px">
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="6">
+          <button type="button" onClick="{{ r.pick }}" aria-pressed="{{ r.pressed }}" style="{{ r.style }}">
+            <img src="{{ r.img }}" alt="" style="width: 64px; height: 64px; border-radius: 10px; object-fit: cover; background: #D3D6BF; flex-shrink: 0">
+            <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; text-align: left">
+              <span style="font-size: 15px; font-weight: 500; line-height: 1.3; color: #1E2014">{{ r.titleShown }}</span>
+              <span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 12px; color: #5A6661"><span style="{{ r.pillStyle }}">{{ r.status }}</span>{{ r.tag }} · {{ r.date }}</span>
+            </span>
+          </button>
+        </sc-for>
+        <sc-if value="{{ noRows }}" hint-placeholder-val="{{ false }}">
+          <p style="margin: 0; padding: 32px 16px; text-align: center; font-size: 14px; color: #5A6661; background: #FFFFFF; border-radius: 14px">No posts match. Try another search or tab.</p>
+        </sc-if>
+      </section>
+
+      <!-- EDITOR -->
+      <section aria-label="Edit post" style="flex: 999 1 520px; min-width: 0; background: #FFFFFF; border-radius: 20px; padding: 28px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #5A6661">Editing <span style="{{ cur.pillStyle }}">{{ cur.status }}</span></div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <a href="article.dc.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 18px; border-radius: 999px; border: 1px solid #DDE0CF; color: #1E2014; text-decoration: none; font-size: 14px">Preview</a>
+            <button type="button" onClick="{{ saveDraft }}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #DDE0CF; background: #FFFFFF; color: #1E2014; font-size: 14px; cursor: pointer">Save draft</button>
+            <button type="button" onClick="{{ publish }}" style="min-height: 44px; padding: 0 22px; border-radius: 999px; border: 0; background: {{accent}}; color: #FFFFFF; font-size: 14px; font-weight: 500; cursor: pointer">{{ publishLabel }}</button>
+          </div>
+        </div>
+
+        <sc-if value="{{ hasToast }}" hint-placeholder-val="{{ false }}">
+          <div role="status" style="display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 12px; background: #E9EBDC; color: #3D4220; font-size: 14px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A5022" stroke-width="2.2" aria-hidden="true"><path d="M4 12l5 5L20 6"></path></svg>{{ toast }}</div>
+        </sc-if>
+
+        <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500">Title
+          <input type="text" value="{{ cur.title }}" onChange="{{ setTitle }}" placeholder="Post title" style="padding: 12px 0; border: 0; border-bottom: 1px solid #DDE0CF; font-family: 'Instrument Serif', Georgia, serif; font-size: 34px; font-weight: 400; color: #1E2014; background: transparent">
+        </label>
+        <span style="font-size: 12px; color: #5A6661; margin-top: -12px">yoursite.com/journal/{{ slug }}</span>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px">
+          <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500">Category
+            <select value="{{ cur.tag }}" onChange="{{ setTag }}" style="min-height: 46px; padding: 0 12px; border-radius: 12px; border: 1px solid #CDD0BD; background: #F8F8F3; font-size: 14px; color: #1E2014">
+              <sc-for list="{{ categories }}" as="c" hint-placeholder-count="6"><option value="{{ c }}">{{ c }}</option></sc-for>
+            </select>
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500">Author
+            <input type="text" value="{{ cur.author }}" onChange="{{ setAuthor }}" style="min-height: 46px; padding: 0 12px; border-radius: 12px; border: 1px solid #CDD0BD; background: #F8F8F3; font-size: 14px; color: #1E2014; box-sizing: border-box">
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500">Publish date
+            <input type="date" value="{{ cur.date }}" onChange="{{ setDate }}" style="min-height: 46px; padding: 0 12px; border-radius: 12px; border: 1px solid #CDD0BD; background: #F8F8F3; font-size: 14px; color: #1E2014; box-sizing: border-box">
+          </label>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 13px; font-weight: 500">Featured image</span>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 12px; border: 1px dashed #C9CCB3; border-radius: 14px">
+            <img src="{{ cur.img }}" alt="Featured image preview" style="width: 160px; height: 100px; border-radius: 10px; object-fit: cover; background: #D3D6BF">
+            <div style="display: flex; flex-direction: column; gap: 8px">
+              <span style="font-size: 13px; color: #5A6661">JPG or PNG, at least 1600px wide</span>
+              <div style="display: flex; gap: 8px"><button type="button" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid #DDE0CF; background: #FFFFFF; font-size: 13px; cursor: pointer">Replace</button><button type="button" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: 0; background: transparent; color: #8A3A2A; font-size: 13px; cursor: pointer">Remove</button></div>
+            </div>
+          </div>
+        </div>
+
+        <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500">Excerpt <span style="font-weight: 400; color: #5A6661">Shown on blog cards. {{ excerptCount }} / 180</span>
+          <textarea rows="3" value="{{ cur.excerpt }}" onChange="{{ setExcerpt }}" maxlength="180" style="padding: 12px 14px; border-radius: 12px; border: 1px solid #CDD0BD; background: #F8F8F3; font-size: 15px; line-height: 1.55; color: #1E2014; resize: vertical"></textarea>
+        </label>
+
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span id="bodyLabel" style="font-size: 13px; font-weight: 500">Article</span>
+          <div style="border: 1px solid #CDD0BD; border-radius: 14px; overflow: hidden">
+            <div role="toolbar" aria-label="Formatting" style="display: flex; flex-wrap: wrap; gap: 2px; padding: 6px; background: #F0F1E8; border-bottom: 1px solid #DDE0CF">
+              <button type="button" aria-label="Bold" style="width: 36px; height: 36px; border: 0; border-radius: 8px; background: transparent; font-weight: 700; cursor: pointer">B</button>
+              <button type="button" aria-label="Italic" style="width: 36px; height: 36px; border: 0; border-radius: 8px; background: transparent; font-style: italic; cursor: pointer">I</button>
+              <button type="button" aria-label="Heading" style="width: 36px; height: 36px; border: 0; border-radius: 8px; background: transparent; font-size: 13px; font-weight: 600; cursor: pointer">H2</button>
+              <button type="button" aria-label="Quote" style="width: 36px; height: 36px; border: 0; border-radius: 8px; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E2014" stroke-width="1.8" aria-hidden="true"><path d="M7 7h4v4c0 3-1.5 5-4 6M15 7h4v4c0 3-1.5 5-4 6"></path></svg></button>
+              <button type="button" aria-label="Bulleted list" style="width: 36px; height: 36px; border: 0; border-radius: 8px; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E2014" stroke-width="1.8" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"></path><circle cx="4.5" cy="6" r="1"></circle><circle cx="4.5" cy="12" r="1"></circle><circle cx="4.5" cy="18" r="1"></circle></svg></button>
+              <button type="button" aria-label="Link" style="width: 36px; height: 36px; border: 0; border-radius: 8px; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E2014" stroke-width="1.8" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"></path><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></svg></button>
+              <button type="button" aria-label="Insert image" style="width: 36px; height: 36px; border: 0; border-radius: 8px; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E2014" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-8 8"></path></svg></button>
+            </div>
+            <textarea rows="12" aria-labelledby="bodyLabel" value="{{ cur.body }}" onChange="{{ setBody }}" style="display: block; width: 100%; box-sizing: border-box; padding: 16px 18px; border: 0; background: #FFFFFF; font-size: 16px; line-height: 1.7; color: #34403B; resize: vertical"></textarea>
+          </div>
+          <span style="font-size: 12px; color: #5A6661">{{ wordCount }} words · about {{ readMins }} min read</span>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#636B2F","options":["#636B2F","#1E2014","#7A5A3A","#3B5B7A"]},"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const a = '[Author name]';
+    this.state = {
+      tab: 'All',
+      query: '',
+      selected: 1,
+      toast: '',
+      nextId: 8,
+      posts: [
+        { id: 1, title: 'Five small habits that take the edge off a racing mind', tag: 'Anxiety', status: 'Published', date: '2026-10-14', author: a, img: '../images/reading-journal.jpg', excerpt: "You don't need an hour of meditation. A few steady routines, done most days, can make anxious mornings feel more manageable.", body: "Anxiety rarely arrives all at once. It builds in the background: a tight chest on the commute, a to-do list that keeps rewriting itself at 2am.\n\n## 1. Breathe out for longer than you breathe in\n\nWhen your mind races, your breathing usually speeds up with it. Slowing the out-breath is one of the quickest ways to signal to your body that you're safe." },
+        { id: 2, title: 'How to argue without losing each other', tag: 'Relationships', status: 'Published', date: '2026-10-07', author: a, img: '../images/kneeling-prayer.jpg', excerpt: "Conflict isn't the problem. It's what happens in the ten minutes after.", body: '' },
+        { id: 3, title: "Rest isn't a reward. It's part of the work", tag: 'Self-care', status: 'Published', date: '2026-09-30', author: a, img: '../images/self-hug-sunlight.jpg', excerpt: "If you only slow down once you've earned it, you'll rarely slow down.", body: '' },
+        { id: 4, title: 'Learning to pause before you react', tag: 'Mindfulness', status: 'Scheduled', date: '2026-10-28', author: a, img: '../images/eyes-closed-sunlight.jpg', excerpt: 'The space between a feeling and what you do next is smaller than you think.', body: '' },
+        { id: 5, title: "Grief doesn't keep to a timetable", tag: 'Grief', status: 'Draft', date: '', author: a, img: '../images/garden-pergola.png', excerpt: "There's no right way or right speed.", body: '' },
+        { id: 6, title: 'Small anchors for uncertain seasons', tag: 'Anxiety', status: 'Published', date: '2026-09-16', author: a, img: '../images/tree-sunset.jpg', excerpt: 'When everything feels unsettled, a few fixed points in your week can steady you.', body: '' },
+        { id: 7, title: 'Talking to yourself like a friend would', tag: 'Self-care', status: 'Draft', date: '', author: a, img: '../images/portrait-smiling-field.jpg', excerpt: 'Most of us are kinder to others than to ourselves.', body: '' },
+      ],
+    };
+  }
+  componentWillUnmount() { clearTimeout(this._t); }
+  flash(msg) {
+    clearTimeout(this._t);
+    this.setState({ toast: msg });
+    this._t = setTimeout(() => this.setState({ toast: '' }), 2600);
+  }
+  update(field, value) {
+    this.setState({ posts: this.state.posts.map((p) => (p.id === this.state.selected ? { ...p, [field]: value } : p)) });
+  }
+  pill(status) {
+    const map = {
+      Published: 'background: #E9EBDC; color: #3D4220;',
+      Draft: 'background: #F0EDE6; color: #5E4A2E;',
+      Scheduled: 'background: #E3EAF2; color: #2F4560;',
+    };
+    return 'display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 500; ' + (map[status] || map.Draft);
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#636B2F';
+    const s = this.state;
+    const tabNames = ['All', 'Published', 'Drafts', 'Scheduled'];
+    const match = (p, t) => t === 'All' || (t === 'Drafts' ? p.status === 'Draft' : p.status === t);
+    const tabs = tabNames.map((t) => {
+      const on = s.tab === t;
+      return {
+        label: t,
+        count: s.posts.filter((p) => match(p, t)).length,
+        selected: on ? 'true' : 'false',
+        pick: () => this.setState({ tab: t }),
+        style: 'min-height: 44px; padding: 0 14px; border: 0; background: transparent; cursor: pointer; font-size: 14px; color: #1E2014; margin-bottom: -1px; ' + (on ? 'border-bottom: 2px solid ' + accent + '; font-weight: 500;' : 'border-bottom: 2px solid transparent;'),
+      };
+    });
+    const q = s.query.trim().toLowerCase();
+    const rows = s.posts
+      .filter((p) => match(p, s.tab) && (!q || p.title.toLowerCase().includes(q) || p.tag.toLowerCase().includes(q)))
+      .map((p) => {
+        const on = p.id === s.selected;
+        return {
+          ...p,
+          titleShown: p.title || 'Untitled post',
+          date: p.date || 'No date',
+          pressed: on ? 'true' : 'false',
+          pillStyle: this.pill(p.status),
+          pick: () => this.setState({ selected: p.id }),
+          style: 'display: flex; align-items: center; gap: 14px; width: 100%; padding: 12px; border-radius: 14px; cursor: pointer; font-family: inherit; ' + (on ? 'background: #FFFFFF; border: 1px solid ' + accent + '; box-shadow: 0 1px 0 ' + accent + ';' : 'background: #FFFFFF; border: 1px solid transparent;'),
+        };
+      });
+    const cur0 = s.posts.find((p) => p.id === s.selected) || s.posts[0];
+    const cur = { ...cur0, pillStyle: this.pill(cur0.status) };
+    const words = (cur.body || '').trim() ? cur.body.trim().split(/\s+/).length : 0;
+    const slug = (cur.title || 'untitled-post').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    return {
+      accent,
+      tabs,
+      rows,
+      noRows: rows.length === 0,
+      cur,
+      slug,
+      query: s.query,
+      countLabel: s.posts.length + ' posts · ' + s.posts.filter((p) => p.status === 'Draft').length + ' drafts',
+      categories: ['Anxiety', 'Relationships', 'Self-care', 'Mindfulness', 'Grief', 'Faith', 'Family'],
+      excerptCount: (cur.excerpt || '').length,
+      wordCount: words,
+      readMins: Math.max(1, Math.round(words / 220)),
+      publishLabel: cur.status === 'Published' ? 'Update' : 'Publish',
+      toast: s.toast,
+      hasToast: !!s.toast,
+      setQuery: (e) => this.setState({ query: e.target.value }),
+      setTitle: (e) => this.update('title', e.target.value),
+      setTag: (e) => this.update('tag', e.target.value),
+      setAuthor: (e) => this.update('author', e.target.value),
+      setDate: (e) => this.update('date', e.target.value),
+      setExcerpt: (e) => this.update('excerpt', e.target.value),
+      setBody: (e) => this.update('body', e.target.value),
+      saveDraft: () => { this.update('status', 'Draft'); this.flash('Draft saved'); },
+      publish: () => {
+        const was = cur.status === 'Published';
+        this.update('status', 'Published');
+        this.flash(was ? 'Changes are live' : 'Post published');
+      },
+      newPost: () => {
+        const id = s.nextId;
+        const blank = { id, title: '', tag: 'Anxiety', status: 'Draft', date: '', author: '[Author name]', img: '', excerpt: '', body: '' };
+        this.setState({ posts: [blank, ...s.posts], selected: id, nextId: id + 1, tab: 'All', query: '' });
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

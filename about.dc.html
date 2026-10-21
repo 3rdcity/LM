@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>About Leya Mnangagwa</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F6F0}
+a{color:#4A5022}a:hover{color:#1E2014}
+em.s{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400}
+html{scroll-behavior:smooth}
+@keyframes kb{from{transform:scale(1) translate(0,0)}to{transform:scale(1.08) translate(-1.5%,-1%)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes reveal{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+.about-hero-photo{overflow:hidden}
+.about-hero-photo::before{content:"";position:absolute;inset:0;background:inherit;animation:kb 26s ease-in-out infinite alternate;will-change:transform}
+img[aria-hidden="true"][style*="position: absolute"]{animation:kb 28s ease-in-out infinite alternate;will-change:transform}
+header > nav{animation:fadeUp .8s ease both}
+header > div:last-of-type > *{animation:fadeUp 1s ease .15s both}
+header > div:last-of-type > *:nth-child(2){animation-delay:.35s}
+a,button{transition:transform .3s ease,background-color .3s ease,color .3s ease,border-color .3s ease,box-shadow .3s ease}
+a[style*="999px"]:hover,button[style*="999px"]:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(30,32,20,.14)}
+a:active,button:active{transform:scale(.98)}
+#ventures article{transition:transform .35s ease,box-shadow .35s ease}
+#ventures article:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(30,32,20,.08)}
+@supports (animation-timeline: view()){
+section :is(h2,figure,form,blockquote,details,article):not(article *):not(header *),section > div > p,section img:not([aria-hidden]):not(article *){animation:reveal linear both;animation-timeline:view();animation-range:entry 0% cover 25%}
+}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+input{font:inherit}
+.about-hero-photo{background-color:#3A3D24;background-image:linear-gradient(rgba(28,30,14,0.45),rgba(28,30,14,0.45)),url(../images/tree-sunset.jpg);background-size:cover;background-position:center 55%}
+</style>
+</helmet>
+
+<div style="font-family: 'Inter Tight', system-ui, sans-serif; color: #1E2014; background: #F6F6F0; width: 100%">
+
+<!-- PAGE HEADER -->
+<header style="position: relative; background: #F6F6F0; color: #FFFFFF; min-height: 600px; display: flex; flex-direction: column; overflow: hidden">
+  <div class="about-hero-photo" role="img" aria-label="A lone tree in a meadow at sunset, framed by mountains" style="position: absolute; inset: 0; margin: 30px; border-radius: 50px"></div>
+
+  <nav style="position: relative; max-width: 1240px; width: 100%; margin: 0 auto; padding: 60px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px">
+    <a href="home.dc.html" style="color: #FFFFFF; text-decoration: none; font-size: 26px; font-weight: 500; letter-spacing: -0.02em"><em class="s">Leya.M</em></a>
+    <div style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 14px">
+      <a href="home.dc.html" style="color: #E8EAD9; text-decoration: none">Home</a>
+      <a href="about.dc.html" aria-current="page" style="color: #FFFFFF; text-decoration: none; font-weight: 500">About</a>
+      <a href="journal.dc.html" style="color: #E8EAD9; text-decoration: none">Stories</a>
+      <a href="home.dc.html#team" style="color: #E8EAD9; text-decoration: none">Philanthropy</a>
+      <a href="home.dc.html#book" style="color: #E8EAD9; text-decoration: none">Contact</a>
+    </div>
+    <a href="home.dc.html#book" style="display: flex; align-items: center; gap: 10px; color: #FFFFFF; text-decoration: none; font-size: 13px">
+      <span style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg>
+      </span>
+      <span style="display: flex; flex-direction: column; line-height: 1.3"><span style="color: #D6D9BE; font-size: 11px">Call us</span>Get in touch</span>
+    </a>
+  </nav>
+
+  <div style="position: relative; flex-grow: 1; max-width: 1240px; width: 100%; margin: 0 auto; padding: 40px 24px 84px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 20px; max-width: 640px">
+      <nav aria-label="Breadcrumb" style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #D6D9BE; display: flex; gap: 10px"><a href="home.dc.html" style="color: #D6D9BE; text-decoration: none">Home</a><span aria-hidden="true">/</span><span aria-current="page" style="color: #FFFFFF">About</span></nav>
+      <h1 style="margin: 0; font-size: clamp(44px, 6vw, 80px); line-height: 1.02; font-weight: 400; letter-spacing: -0.03em">Faith, family <br>and <em class="s">purpose</em></h1>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 28px">
+      <p style="margin: 0; max-width: 420px; font-size: 14px; line-height: 1.6; color: #FFFFFF">Entrepreneur, founder, mentor and mother of four, building spaces where women can grow whole.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end">
+        <span style="font-size: 12px; padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25)">Faith-led</span>
+        <span style="font-size: 12px; padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25)">Wellness advocate</span>
+        <span style="font-size: 12px; padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25)">Founder</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- INTRO -->
+<section style="max-width: 1240px; margin: 0 auto; padding: 120px 24px; box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 72px; align-items: center">
+  <div style="position: relative; padding-bottom: 72px">
+    <img src="../images/portrait-smiling-field.jpg" alt="Leya Mnangagwa smiling softly in a sunlit field" style="display: block; width: 100%; height: 560px; object-fit: cover; object-position: center 25%; border-radius: 24px; background: #D3D6BF">
+    
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 24px">
+    <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #5C6235">About me</span>
+    <h2 style="margin: 0; font-size: clamp(36px, 4.2vw, 56px); line-height: 1.06; font-weight: 400; letter-spacing: -0.025em">Hi, I'm Leya. Living life <em class="s">in full colour</em></h2>
+    <p style="margin: 0; font-size: 17px; line-height: 1.75; color: #34403B">I'm Leya Mnangagwa, a woman devoted to living life in full colour, guided by faith, purpose and grace.</p>
+    <p style="margin: 0; font-size: 17px; line-height: 1.75; color: #34403B">I've worn many hats: entrepreneur, founder, mentor, dreamer. But above all, I'm a wife and mother of four who believes that growth begins with truth and healing starts from within. My journey has taught me that real success is found not in titles but in service, in using what we have to uplift, nurture and restore others.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px">
+      <a href="#ventures" style="background: {{accent}}; color: #FFFFFF; text-decoration: none; padding: 13px 24px; border-radius: 999px; font-size: 14px; font-weight: 500">See what I'm building</a>
+      <a href="home.dc.html#book" style="border: 1px solid #C9CCB3; color: #1E2014; text-decoration: none; padding: 13px 24px; border-radius: 999px; font-size: 14px; font-weight: 500">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- VENTURES -->
+<section id="ventures" style="background: #ECEDE4; padding: 120px 24px">
+  <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+    <div style="display: flex; flex-direction: column; gap: 16px; align-items: center; text-align: center; max-width: 720px; margin: 0 auto">
+      <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #5C6235">What I'm building</span>
+      <h2 style="margin: 0; font-size: clamp(34px, 4vw, 52px); line-height: 1.08; font-weight: 400; letter-spacing: -0.025em">Spaces where women&nbsp;<div>can <em class="s">grow whole</em></div></h2>
+      <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #4E5A55">My work blends African wellness, storytelling and faith-driven principles to help others live healthy, whole and grace-filled lives, with intention and balance across faith, family and purpose.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px">
+      <article style="background: #FFFFFF; border-radius: 20px; padding: 32px 28px; display: flex; flex-direction: column; gap: 16px">
+        <span style="width: 52px; height: 52px; border-radius: 14px; background: #E9EBDC; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A5022" stroke-width="1.6" aria-hidden="true"><path d="M12 21c-4-3-8-6.5-8-11a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 4.5-4 8-8 11z"></path><path d="M12 9v6M9 12h6"></path></svg></span>
+        <h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 26px; line-height: 1.15">Wellness Without Limits</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4E5A55">Holistic wellness for women, rooted in African wellness traditions and faith.</p>
+        <a href="https://wellnesswithoutlimits.org/" style="margin-top: auto; font-size: 14px; font-weight: 500">Visit site ↗</a>
+      </article>
+      <article style="background: #FFFFFF; border-radius: 20px; padding: 32px 28px; display: flex; flex-direction: column; gap: 16px">
+        <span style="width: 52px; height: 52px; border-radius: 14px; background: #E9EBDC; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A5022" stroke-width="1.6" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"></path></svg></span>
+        <h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 26px; line-height: 1.15">The Unqualified Podcast</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4E5A55">[One line on what the podcast covers and who it's for.]</p>
+        <a href="#" style="margin-top: auto; font-size: 14px; font-weight: 500">Listen ↗</a>
+      </article>
+      <article style="background: #FFFFFF; border-radius: 20px; padding: 32px 28px; display: flex; flex-direction: column; gap: 16px">
+        <span style="width: 52px; height: 52px; border-radius: 14px; background: #E9EBDC; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A5022" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9s1-6.5 3.5-9z"></path></svg></span>
+        <h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 26px; line-height: 1.15">Arimah Travel &amp; Tours</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4E5A55">[One line on the kinds of trips and experiences offered.]</p>
+        <a href="https://arimahtravel.com/" style="margin-top: auto; font-size: 14px; font-weight: 500">Visit site ↗</a>
+      </article>
+      <article style="background: #FFFFFF; border-radius: 20px; padding: 32px 28px; display: flex; flex-direction: column; gap: 16px">
+        <span style="width: 52px; height: 52px; border-radius: 14px; background: #E9EBDC; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A5022" stroke-width="1.6" aria-hidden="true"><path d="M4 21V10l8-6 8 6v11"></path><path d="M9 21v-6h6v6"></path></svg></span>
+        <h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 26px; line-height: 1.15">The Arimah Foundation</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4E5A55">[One line on the foundation's mission and who it serves.]</p>
+        <a href="#" style="margin-top: auto; font-size: 14px; font-weight: 500">Learn more →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT GUIDES ME -->
+<section style="max-width: 1240px; margin: 0 auto; padding: 120px 24px; box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 72px; align-items: center">
+  <img src="../images/kneeling-prayer.jpg" alt="Leya kneeling on grass with hands clasped in prayer" style="display: block; width: 100%; height: 620px; object-fit: cover; object-position: 70% center; border-radius: 24px; background: #3A3D24">
+  <div style="display: flex; flex-direction: column; gap: 24px">
+    <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #5C6235">What grounds me</span>
+    <h2 style="margin: 0; font-size: clamp(34px, 4vw, 52px); line-height: 1.08; font-weight: 400; letter-spacing: -0.025em">The moments that&nbsp;<div><em class="s">matter most</em></div></h2>
+    <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #4E5A55">When I'm not working, you'll find me grounded in the things that remind me what truly counts.</p>
+    <div style="display: flex; flex-direction: column">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 22px 0; border-top: 1px solid #D6D9C4"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px">Time with my family</span><span style="font-size: 13px; color: #5C6235">01</span></div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 22px 0; border-top: 1px solid #D6D9C4"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px">Prayer</span><span style="font-size: 13px; color: #5C6235">02</span></div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 22px 0; border-top: 1px solid #D6D9C4"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px">Reflection</span><span style="font-size: 13px; color: #5C6235">03</span></div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 22px 0; border-top: 1px solid #D6D9C4; border-bottom: 1px solid #D6D9C4"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px">Deep conversations</span><span style="font-size: 13px; color: #5C6235">04</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WELCOME BANNER -->
+<section style="position: relative; color: #FFFFFF; overflow: hidden; padding: 140px 24px">
+  <img src="../images/hero-wildflower-field.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 40%; background: #3A3D24">
+  <div style="position: absolute; inset: 0; background: rgba(28, 30, 14, 0.55)" aria-hidden="true"></div>
+  <div style="position: relative; max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center">
+    <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #E0E2CE">If you've found your way here</span>
+    <p style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(30px, 3.8vw, 48px); line-height: 1.2">Welcome. May this space remind you that you are worthy of love, capable of growth, and <em class="s">exactly where you are meant to be.</em></p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; padding-top: 8px">
+      <a href="journal.dc.html" style="background: #FFFFFF; color: #1E2014; text-decoration: none; padding: 13px 24px; border-radius: 999px; font-size: 14px; font-weight: 500">Read the journal</a>
+      <a href="home.dc.html#book" style="border: 1px solid rgba(255,255,255,0.6); color: #FFFFFF; text-decoration: none; padding: 13px 24px; border-radius: 999px; font-size: 14px; font-weight: 500">Get in touch</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer style="background: #24261A; color: #FFFFFF; padding: 80px 24px 32px">
+  <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; align-items: flex-end">
+      <div style="display: flex; flex-direction: column; gap: 12px; max-width: 460px">
+        <span style="font-size: clamp(30px, 3.4vw, 44px); font-weight: 400; letter-spacing: -0.025em; line-height: 1.1">Gentle reads, <em class="s">once a month</em></span>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #C9CCB3">Reflections on wellness, faith and family, straight to your inbox.</p>
+      </div>
+      <form style="display: flex; flex-direction: column; gap: 10px; flex: 0 1 440px">
+        <label for="nl4" style="font-size: 13px; color: #D6D9BE">Email address</label>
+        <div style="display: flex; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px">
+          <input id="nl4" type="email" placeholder="you@email.com" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #FFFFFF; font-size: 15px; padding: 10px 0">
+          <button type="button" style="background: #FFFFFF; color: #1E2014; border: 0; padding: 11px 22px; border-radius: 999px; font-size: 13px; font-weight: 500; cursor: pointer">Subscribe</button>
+        </div>
+      </form>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 24px; font-size: 12px; color: #B3B79A">
+      <a href="home.dc.html" style="color: #FFFFFF; text-decoration: none; font-size: 22px; font-weight: 500; letter-spacing: -0.02em">Still<em class="s">well</em></a>
+      <span>© 2026 Stillwell. All rights reserved.</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px"><a href="#" style="color: #B3B79A; text-decoration: none">Terms</a><a href="#" style="color: #B3B79A; text-decoration: none">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#636B2F","options":["#636B2F","#1E2014","#7A5A3A","#3B5B7A"]},"$preview":{"width":1440,"height":4700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#636B2F' };
+  }
+}
+</script>
+</body>
+</html>

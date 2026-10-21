@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stillwell — Therapy Practice</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F6F0}
+a{color:#4A5022}a:hover{color:#0E211C}
+em.s{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400}
+html{scroll-behavior:smooth}
+@keyframes kb{from{transform:scale(1) translate(0,0)}to{transform:scale(1.08) translate(-1.5%,-1%)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes reveal{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+.hero-photo{overflow:hidden}
+.hero-photo::before{content:"";position:absolute;inset:0;background:inherit;animation:kb 26s ease-in-out infinite alternate;will-change:transform}
+img[aria-hidden="true"][style*="position: absolute"]{animation:kb 28s ease-in-out infinite alternate;will-change:transform}
+header > nav{animation:fadeUp .8s ease both}
+header > div:last-of-type > *{animation:fadeUp 1s ease .15s both}
+header > div:last-of-type > *:nth-child(2){animation-delay:.35s}
+a,button{transition:transform .3s ease,background-color .3s ease,color .3s ease,border-color .3s ease,box-shadow .3s ease}
+a[style*="999px"]:hover,button[style*="999px"]:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(30,32,20,.14)}
+a:active,button:active{transform:scale(.98)}
+a svg{transition:transform .3s ease}
+a:hover svg[width="176"]{transform:translateX(6px)}
+details[open] > :not(summary){animation:fadeUp .35s ease both}
+[role="status"]{animation:fadeUp .4s ease both}
+@supports (animation-timeline: view()){
+section :is(h2,figure,form,blockquote,details,article):not(article *):not(header *),section > div > p,section img:not([aria-hidden]):not(article *){animation:reveal linear both;animation-timeline:view();animation-range:entry 0% cover 25%}
+}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+summary{list-style:none;cursor:pointer}
+.hero-photo{background-color:#3A3D24;background-image:linear-gradient(rgba(28,30,14,0.42),rgba(28,30,14,0.42)),url(../images/hero-wildflower-field.jpg);background-size:cover;background-position:62% 35%}
+summary::-webkit-details-marker{display:none}
+input,select,textarea{font:inherit}
+</style>
+</helmet>
+
+<div style="font-family: 'Inter Tight', system-ui, sans-serif; color: #1E2014; background: #F6F6F0; width: 100%">
+
+<!-- HERO -->
+
+
+<!-- ABOUT -->
+<header style="position: relative; background: #3A3D24; color: #FFFFFF; min-height: 760px; display: flex; flex-direction: column; overflow: hidden; border-radius: 50px; margin-right: 0px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; padding-right: 0px; padding-left: 0px; padding-top: 0px; padding-bottom: 0px">
+  <div style="position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: flex-end; padding: 24px; box-sizing: border-box; color: #ffffff; background-color: #ffffff" aria-hidden="true">
+  </div>
+  <div class="hero-photo" role="img" aria-label="A woman with eyes closed and hands clasped, standing in a field of yellow wildflowers at golden hour" style="position: absolute; inset: 0; height: auto; margin: 30px; border-radius: 50px"></div>
+
+  <nav style="position: relative; max-width: 1240px; width: 100%; margin: 0 auto; padding: 28px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding-right: 24px; padding-left: 24px; padding-top: 60px; padding-bottom: 60px">
+    
+    
+    <a href="#" style="color: #FFFFFF; text-decoration: none; font-size: 26px; font-weight: 500; letter-spacing: -0.02em"><em class="s">Leya.M</em></a><div style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 14px"><a href="#" style="color: rgb(255, 255, 255); text-decoration: none">Home</a>
+      <a href="#about" style="color: rgb(232, 234, 217); text-decoration: none">About</a>
+      <a href="#services" style="color: rgb(232, 234, 217); text-decoration: none">Stories</a>
+      <a href="#team" style="color: rgb(232, 234, 217); text-decoration: none">Philanthropy</a>
+      <a href="#book" style="color: rgb(232, 234, 217); text-decoration: none">Contact</a>
+    </div><a href="tel:+000" style="display: flex; align-items: center; gap: 10px; color: #FFFFFF; text-decoration: none; font-size: 13px">
+      <span style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg>
+      </span>
+      <span style="display: flex; flex-direction: column; line-height: 1.3"><span style="color: rgb(214, 217, 190); font-size: 11px">Call us</span>Get in touch</span>
+    </a>
+  </nav>
+
+  <div style="position: relative; flex-grow: 1; max-width: 1240px; width: 100%; margin: 0 auto; padding: 60px 24px 48px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; gap: 40px">
+    <div style="display: flex; flex-direction: column; gap: 24px; max-width: 640px">
+      <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #D6D9BE">FAITH-LED WELLNESS ADVOCATE</span>
+      <h1 style="margin: 0; font-size: clamp(44px, 6vw, 80px); line-height: 1.02; font-weight: 400; letter-spacing: -0.03em">Room to breathe.<br>Help that <em class="s">stays</em></h1>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px">
+        <a href="#book" style="background: #FFFFFF; color: #1E2014; text-decoration: none; padding: 14px 26px; border-radius: 999px; font-size: 14px; font-weight: 500">Explore</a>
+        <div style="margin: 0; max-width: 340px; font-size: 14px; line-height: 1.6; color: #E3E5D2"><p data-pm-slice="1 1 []" style="caret-color: rgb(255, 255, 255); color: rgb(255, 255, 255)">I’m Leya Mnangagwa, a faith-led leader, wellness advocate, founder and mother of four learning to live in truth everyday.</p></div>
+      </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 28px">
+      <div style="display: flex; align-items: center; gap: 14px">
+        <div style="display: flex">
+          <span style="width: 38px; height: 38px; border-radius: 50%; background: #C5C9A4; border: 2px solid #3A3D24"></span>
+          <span style="width: 38px; height: 38px; border-radius: 50%; background: #C7B8A3; border: 2px solid #3A3D24; margin-left: -10px"></span>
+          <span style="width: 38px; height: 38px; border-radius: 50%; background: #8FA69A; border: 2px solid #3A3D24; margin-left: -10px"></span>
+        </div>
+        <span style="font-size: 13px; color: #E3E5D2">[NUMBER]+ people supported</span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; max-width: 420px; justify-content: flex-end; width: 438px; height: 34px"><span style="font-size: 12px; padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25)">Faith-led</span>
+        <span style="font-size: 12px; padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25)">Wellness Advocate</span>
+        <span style="font-size: 12px; padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25)">Anxiety &amp; stress</span>
+      </div>
+    </div>
+  </div>
+</header><section id="about" style="max-width: 1240px; margin: 0 auto; padding: 120px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 80px; height: 932px">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 64px; align-items: start">
+    <div style="position: relative; padding-bottom: 60px">
+      <img src="../images/portrait-smiling-field.jpg" alt="Leya Mnangagwa smiling softly in a sunlit field" style="display: block; width: 100%; height: 672px; border-radius: 20px; background: #D3D6BF; object-fit: cover; object-position: center 25%">
+      
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 28px">
+      <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #5C6235">About me</span>
+      <h2 style="margin: 0; font-size: clamp(34px, 4vw, 52px); line-height: 1.08; font-weight: 400; letter-spacing: -0.025em">A life lived <em class="s">in full colour</em></h2>
+      <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #3D4A45; max-width: 520px">I'm Leya: wife, mother of four, founder and mentor. Life has taught me that growth begins with truth and healing starts from within. This is where I share that journey honestly, so you never have to walk yours alone.</p>
+      <a href="about.dc.html" style="align-self: flex-start; background: {{accent}}; color: #FFFFFF; text-decoration: none; padding: 13px 24px; border-radius: 999px; font-size: 14px; font-weight: 500">Read my story</a>
+      <div style="display: flex; flex-direction: column; gap: 4px; margin-top: 16px; border-top: 1px solid #D6DBD7; padding-top: 28px">
+        <h3 style="margin: 0 0 12px; font-size: 18px; font-weight: 500">Ways to walk with me</h3>
+        <div style="display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #E2E6E3">
+          <span style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #E9EBDC; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A5022" stroke-width="1.6" aria-hidden="true"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"></path></svg></span>
+          <div><a href="journal.dc.html" style="font-size: 15px; font-weight: 500; color: #1E2014; text-decoration: none">Read the journal →</a><div style="font-size: 14px; color: #4E5A55; line-height: 1.6">Honest reflections on faith, family and wellness.</div></div>
+        </div>
+        <div style="display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #E2E6E3">
+          <span style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #E9EBDC; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A5022" stroke-width="1.6" aria-hidden="true"><path d="M12 21c-4-3-8-6.5-8-11a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 4.5-4 8-8 11z"></path><path d="M12 9v6M9 12h6"></path></svg></span>
+          <div><a href="https://wellnesswithoutlimits.org/" style="font-size: 15px; font-weight: 500; color: #1E2014; text-decoration: none">Explore Wellness Without Limits ↗</a><div style="font-size: 14px; color: #4E5A55; line-height: 1.6">My heart project: a celebration of health, hope and wellness.</div></div>
+        </div>
+        <div style="display: flex; gap: 16px; padding: 14px 0">
+          <span style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #E9EBDC; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A5022" stroke-width="1.6" aria-hidden="true"><path d="M4 19V8a2 2 0 0 1 2-2h5v13H6a2 2 0 0 0-2 2zM20 19V8a2 2 0 0 0-2-2h-5v13h5a2 2 0 0 1 2 2z"></path></svg></span>
+          <div><a href="philanthropy.dc.html" style="font-size: 15px; font-weight: 500; color: #1E2014; text-decoration: none">Join Her Secret Place →</a><div style="font-size: 14px; color: #4E5A55; line-height: 1.6">A women's retreat to rest, reflect and reconnect with faith.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; border-top: 1px solid #D6DBD7; padding-top: 48px">
+    
+    
+    
+    
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="background: #ECEDE4; padding: 120px 24px">
+  <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px; align-items: center">
+    <div style="width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px">
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #5C6235">Our services</span>
+        <h2 style="margin: 0; font-size: clamp(34px, 4vw, 52px); line-height: 1.08; font-weight: 400; letter-spacing: -0.025em">Support shaped around<br><em class="s">your</em> life</h2>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px; max-width: 380px">
+        <div style="margin: 0; font-size: 15px; line-height: 1.65; color: #1e2014"><p data-pm-slice="1 1 []" style="caret-color: rgb(255, 255, 255); color: #1e2014">These are the spaces I pour my energy and heart into. From conversations that stretch us, to experiences that</p></div>
+        <a href="#services" style="align-self: flex-start; background: {{accent}}; color: #FFFFFF; text-decoration: none; padding: 13px 26px; border-radius: 999px; font-size: 14px; font-weight: 500">All services</a>
+      </div>
+    </div>
+    <div style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px; align-items: stretch">
+
+      <article style="background: #FFFFFF; border-radius: 24px; padding: 12px; display: flex; flex-direction: column; gap: 24px">
+        <div style="position: relative; height: 280px; border-radius: 16px; background: #D3D6BF; display: flex; align-items: flex-end; padding: 14px; box-sizing: border-box"><span style="position: absolute; z-index: 1; top: 14px; left: 14px; font-size: 13px; font-weight: 500; padding: 6px 12px; border-radius: 999px; background: #FFFFFF; color: #1E2014">01</span><img src="../images/wwl-card.jpg" alt="A wellness card resting among fresh greens beside a woven basket" style="position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 16px; object-fit: cover; object-position: center 45%"></div>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 14px; padding: 0 16px 16px">
+          <h3 style="margin: 0; font-size: 26px; font-weight: 400; letter-spacing: -0.02em">Her Secret Place</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4E5A55">One-to-one sessions to untangle what's weighing on you and build tools that last beyond the room.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="font-size: 12px; padding: 6px 12px; border-radius: 999px; background: #F0F1E8">Self-esteem</span><span style="font-size: 12px; padding: 6px 12px; border-radius: 999px; background: #F0F1E8">Grief</span><span style="font-size: 12px; padding: 6px 12px; border-radius: 999px; background: #F0F1E8">Burnout</span></div>
+          <a href="#" style="margin-top: auto; padding-top: 18px; border-top: 1px solid #E4E6DA; display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 500; text-decoration: none; color: #1E2014">Learn more<span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article style="background: {{accent}}; color: #FFFFFF; border-radius: 24px; padding: 12px; display: flex; flex-direction: column; gap: 24px">
+        <div style="position: relative; height: 280px; border-radius: 16px; background: #C7B8A3; display: flex; align-items: flex-end; padding: 14px; box-sizing: border-box"><span style="position: absolute; z-index: 1; top: 14px; left: 14px; font-size: 13px; font-weight: 500; padding: 6px 12px; border-radius: 999px; background: #FFFFFF; color: #1E2014">02</span><img src="../images/portrait-arimah-travel.jpg" alt="A smiling woman with arms folded, leaning against a wall" style="position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 16px; object-fit: cover; object-position: center 22%"></div>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 14px; padding: 0 16px 16px">
+          <h3 style="margin: 0; font-size: 26px; font-weight: 400; letter-spacing: -0.02em">Wellness Without Limits</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #EEF0E2">A neutral space for partners or whole households to talk honestly, hear each other again and decide together what comes next.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="font-size: 12px; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.3)">Communication</span><span style="font-size: 12px; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.3)">Parenting</span><span style="font-size: 12px; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.3)">Transitions</span></div>
+          <a href="#" style="margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.3); display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 500; text-decoration: none; color: #FFFFFF">Learn more<span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article style="background: #FFFFFF; border-radius: 24px; padding: 12px; display: flex; flex-direction: column; gap: 24px">
+        <div style="position: relative; height: 280px; border-radius: 16px; background: #D3CBBE; display: flex; align-items: flex-end; padding: 14px; box-sizing: border-box"><span style="position: absolute; z-index: 1; top: 14px; left: 14px; font-size: 13px; font-weight: 500; padding: 6px 12px; border-radius: 999px; background: #FFFFFF; color: #1E2014">03</span><img src="../images/garden-pergola.png" alt="A quiet garden path under a vine-covered pergola" style="position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 16px; object-fit: cover; object-position: center 50%"></div>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 14px; padding: 0 16px 16px">
+          <h3 style="margin: 0; font-size: 26px; font-weight: 400; letter-spacing: -0.02em">Arimah Travel and Tours</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4E5A55">Practical, structured work to quiet racing thoughts and get your days back under your control.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="font-size: 12px; padding: 6px 12px; border-radius: 999px; background: #F0F1E8">Panic</span><span style="font-size: 12px; padding: 6px 12px; border-radius: 999px; background: #F0F1E8">Sleep</span><span style="font-size: 12px; padding: 6px 12px; border-radius: 999px; background: #F0F1E8">Work stress</span></div>
+          <a href="#" style="margin-top: auto; padding-top: 18px; border-top: 1px solid #E4E6DA; display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 500; text-decoration: none; color: #1E2014">Learn more<span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section style="position: relative; background: #62673F; color: #FFFFFF; padding: 120px 24px; overflow: hidden">
+  <img src="../images/tree-sunset.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 52%; background: #707552">
+  <div style="position: absolute; inset: 0; background: rgba(30, 32, 16, 0.45)" aria-hidden="true"></div>
+  <div style="position: relative; max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 56px; align-items: center; min-height: 520px">
+    <div style="display: flex; flex-direction: column; gap: 20px; align-self: start">
+      <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #E0E2CE">Why Stillwell</span>
+      <h2 style="margin: 0; font-size: clamp(34px, 4vw, 52px); line-height: 1.08; font-weight: 400; letter-spacing: -0.025em">Care you can trust,<br>on <em class="s">your</em> terms</h2>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 24px">
+      <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #E8EAD9; max-width: 420px">Four promises we make to every client, from the first call to the last session.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+        <div style="background: #FFFFFF; color: #1E2014; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+          <span style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #D6DBD7; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A5022" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1-4 4.5-6 8-6s7 2 8 6"></path></svg></span>
+          <h3 style="margin: 0; font-size: 17px; font-weight: 500">Fully licensed team</h3>
+          <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #4E5A55">Every therapist is registered, insured and in ongoing supervision.</p>
+        </div>
+        <div style="background: #FFFFFF; color: #1E2014; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+          <span style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #D6DBD7; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A5022" stroke-width="1.6" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h6"></path></svg></span>
+          <h3 style="margin: 0; font-size: 17px; font-weight: 500">Plans made with you</h3>
+          <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #4E5A55">Goals you choose, reviewed together every few sessions.</p>
+        </div>
+        <div style="background: #FFFFFF; color: #1E2014; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+          <span style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #D6DBD7; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A5022" stroke-width="1.6" aria-hidden="true"><path d="M3 11l9-7 9 7v9H3z"></path><path d="M10 20v-5h4v5"></path></svg></span>
+          <h3 style="margin: 0; font-size: 17px; font-weight: 500">Calm, private rooms</h3>
+          <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #4E5A55">Quiet spaces designed to help you settle in and speak freely.</p>
+        </div>
+        <div style="background: #FFFFFF; color: #1E2014; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+          <span style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #D6DBD7; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A5022" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg></span>
+          <h3 style="margin: 0; font-size: 17px; font-weight: 500">Flexible times</h3>
+          <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #4E5A55">Evening, weekend and online slots that fit around work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+
+
+<!-- BOOKING -->
+
+
+<!-- TESTIMONIALS -->
+<section style="max-width: 1240px; margin: 0 auto; padding: 120px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 56px; align-items: center">
+  <div style="display: flex; flex-direction: column; gap: 16px; align-items: center; text-align: center">
+    <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #5C6235">GET TO KNOW ME</span>
+    <h2 style="margin: 0; font-size: clamp(34px, 4vw, 52px); line-height: 1.08; font-weight: 400; letter-spacing: -0.025em">The values I live by,<br><em class="s">every day</em></h2>
+    <p style="margin: 0; max-width: 520px; font-size: 16px; line-height: 1.7; color: #4E5A55">Four things shape every venture I build, every room I walk into and every conversation at my kitchen table.</p>
+  </div>
+  <div style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px">
+    <div style="display: flex; flex-direction: column; gap: 20px">
+      <article style="flex: 1; background: #FFFFFF; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; justify-content: space-between; align-items: center"><span style="width: 44px; height: 44px; border-radius: 12px; background: #E9EBDC; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A5022" stroke-width="1.6" aria-hidden="true"><path d="M12 3v18M7 8h10"></path></svg></span><span style="font-size: 13px; color: #5C6235">01</span></div>
+        <h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.1">Faith first</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4E5A55">Faith is my compass. It steadies me on the hard days and keeps me humble on the good ones.</p>
+      </article>
+      <article style="flex: 1; background: #FFFFFF; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; justify-content: space-between; align-items: center"><span style="width: 44px; height: 44px; border-radius: 12px; background: #E9EBDC; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A5022" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3.5"></circle></svg></span><span style="font-size: 13px; color: #5C6235">02</span></div>
+        <h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.1">Truth before growth</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4E5A55">Real growth starts when we're honest about where we are. I'd rather share the messy middle than a polished highlight reel.</p>
+      </article>
+    </div>
+    <div style="position: relative; overflow: hidden; min-height: 460px; border-radius: 18px; background: #2A2C1C; color: #FFFFFF; display: flex; flex-direction: column; justify-content: space-between; padding: 24px; box-sizing: border-box">
+      <img src="../images/eyes-closed-sunlight.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%">
+      <div style="position: absolute; inset: 0; background: rgba(30, 32, 16, 0.32)" aria-hidden="true"></div>
+      <span style="position: relative; align-self: flex-start; font-size: 12px; font-weight: 500; padding: 6px 12px; border-radius: 999px; background: rgba(30, 32, 16, 0.6)">Video · [0:00]</span>
+      <button type="button" aria-label="Play video: Leya on faith, family and purpose" style="position: relative; align-self: center; width: 72px; height: 72px; border-radius: 50%; border: 0; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="#1E2014" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></button>
+      <div style="position: relative; display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 12px; background: rgba(30, 32, 16, 0.6)"><span style="font-size: 16px; font-weight: 500">Hear it from me</span><span style="font-size: 12px; color: #E3E5D2">Leya on faith, family and living with purpose</span></div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 20px">
+      <article style="flex: 1; background: #FFFFFF; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; justify-content: space-between; align-items: center"><span style="width: 44px; height: 44px; border-radius: 12px; background: #E9EBDC; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A5022" stroke-width="1.6" aria-hidden="true"><path d="M7 11V7a2 2 0 0 1 4 0v4M11 10V5a2 2 0 0 1 4 0v6M15 9a2 2 0 0 1 4 0v4a8 8 0 0 1-8 8h-1a6 6 0 0 1-5-3l-2-4a1.8 1.8 0 0 1 3-2l1 1.5"></path></svg></span><span style="font-size: 13px; color: #5C6235">03</span></div>
+        <h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.1">Service over status</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4E5A55">Success isn't the title on the door. It's how many people you've helped lift, nurture and restore along the way.</p>
+      </article>
+      <article style="flex: 1; background: #FFFFFF; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; justify-content: space-between; align-items: center"><span style="width: 44px; height: 44px; border-radius: 12px; background: #E9EBDC; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A5022" stroke-width="1.6" aria-hidden="true"><path d="M12 21c-4-3-8-6.5-8-11a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 4.5-4 8-8 11z"></path></svg></span><span style="font-size: 13px; color: #5C6235">04</span></div>
+        <h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.1">Healing from within</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4E5A55">Wellness is more than the body. Mind, spirit and family all need tending, and the work always starts on the inside.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+
+
+<!-- JOURNAL -->
+<section id="journal" style="background: #FFFFFF; padding: 120px 24px">
+  <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #5C6235">From the journal</span>
+        <h2 style="margin: 0; font-size: clamp(34px, 4vw, 52px); line-height: 1.08; font-weight: 400; letter-spacing: -0.025em">Notes for the <em class="s">in-between</em> days</h2>
+      </div>
+      <a href="#" style="background: {{accent}}; color: #FFFFFF; text-decoration: none; padding: 13px 26px; border-radius: 999px; font-size: 14px; font-weight: 500">All articles</a>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 40px">
+
+      <article style="display: flex; flex-direction: column">
+        <img src="../images/reading-journal.jpg" alt="A woman reading a journal at a polished wooden table" style="display: block; width: 100%; height: 320px; background: #D3D6BF; object-fit: cover; object-position: center 38%">
+        <div style="position: relative; margin: -40px 56px 0 0; background: #FFFFFF; padding: 0 0 8px 40px; display: flex; flex-direction: column; gap: 24px">
+          <a href="#" style="align-self: flex-start; background: {{accent}}; color: #FFFFFF; text-decoration: none; padding: 10px 28px; font-size: 14px; letter-spacing: 0.06em">Anxiety</a>
+          <h3 style="margin: 0 0 0 -40px; padding-left: 35px; border-left: 5px solid {{accent}}; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 32px; line-height: 1.15; color: #1E2014"><a href="#" style="color: #1E2014; text-decoration: none">Five small habits that take the edge off a racing mind</a></h3>
+          
+          <p style="margin: 0; font-size: 16px; line-height: 1.75; color: #4E5A55">You don't need an hour of meditation. A few steady routines, done most days, can make anxious mornings feel more manageable…</p>
+          <a href="#" style="align-self: flex-start; display: flex; flex-direction: column; gap: 10px; color: #4E5A55; text-decoration: none; font-size: 13px; letter-spacing: 0.14em">READ MORE<svg width="176" height="8" viewBox="0 0 176 8" fill="none" stroke="#4E5A55" stroke-width="1.2" aria-hidden="true"><path d="M0 4h174M170 1l4 3-4 3"></path></svg></a>
+        </div>
+      </article>
+
+      <article style="display: flex; flex-direction: column">
+        <img src="../images/kneeling-prayer.jpg" alt="A woman kneeling on grass with hands clasped, eyes lowered in reflection" style="display: block; width: 100%; height: 320px; background: #3A3D24; object-fit: cover; object-position: center 50%">
+        <div style="position: relative; margin: -40px 56px 0 0; background: #FFFFFF; padding: 0 0 8px 40px; display: flex; flex-direction: column; gap: 24px">
+          <a href="#" style="align-self: flex-start; background: {{accent}}; color: #FFFFFF; text-decoration: none; padding: 10px 28px; font-size: 14px; letter-spacing: 0.06em">Relationships</a>
+          <h3 style="margin: 0 0 0 -40px; padding-left: 35px; border-left: 5px solid {{accent}}; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 32px; line-height: 1.15; color: #1E2014"><a href="#" style="color: #1E2014; text-decoration: none">How to argue without losing each other</a></h3>
+          
+          <p style="margin: 0; font-size: 16px; line-height: 1.75; color: #4E5A55">Conflict isn't the problem. It's what happens in the ten minutes after. Here's what couples who repair well tend to do…</p>
+          <a href="#" style="align-self: flex-start; display: flex; flex-direction: column; gap: 10px; color: #4E5A55; text-decoration: none; font-size: 13px; letter-spacing: 0.14em">READ MORE<svg width="176" height="8" viewBox="0 0 176 8" fill="none" stroke="#4E5A55" stroke-width="1.2" aria-hidden="true"><path d="M0 4h174M170 1l4 3-4 3"></path></svg></a>
+        </div>
+      </article>
+
+      <article style="display: flex; flex-direction: column">
+        <img src="../images/self-hug-sunlight.jpg" alt="A woman hugging herself, eyes closed, face turned toward the sun" style="display: block; width: 100%; height: 320px; background: #E2E6E3; object-fit: cover; object-position: center 22%">
+        <div style="position: relative; margin: -40px 56px 0 0; background: #FFFFFF; padding: 0 0 8px 40px; display: flex; flex-direction: column; gap: 24px">
+          <a href="#" style="align-self: flex-start; background: {{accent}}; color: #FFFFFF; text-decoration: none; padding: 10px 28px; font-size: 14px; letter-spacing: 0.06em">Self-care</a>
+          <h3 style="margin: 0 0 0 -40px; padding-left: 35px; border-left: 5px solid {{accent}}; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 32px; line-height: 1.15; color: #1E2014"><a href="#" style="color: #1E2014; text-decoration: none">Rest isn't a reward. It's part of the work</a></h3>
+          
+          <p style="margin: 0; font-size: 16px; line-height: 1.75; color: #4E5A55">If you only slow down once you've earned it, you'll rarely slow down. A gentler way to think about recovery…</p>
+          <a href="#" style="align-self: flex-start; display: flex; flex-direction: column; gap: 10px; color: #4E5A55; text-decoration: none; font-size: 13px; letter-spacing: 0.14em">READ MORE<svg width="176" height="8" viewBox="0 0 176 8" fill="none" stroke="#4E5A55" stroke-width="1.2" aria-hidden="true"><path d="M0 4h174M170 1l4 3-4 3"></path></svg></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="max-width: 1240px; margin: 0 auto; padding: 120px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 56px; align-items: center">
+  <div style="display: flex; flex-direction: column; gap: 16px; align-items: center; text-align: center">
+    <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #5C6235">Common questions</span>
+    <h2 style="margin: 0; font-size: clamp(34px, 4vw, 52px); line-height: 1.08; font-weight: 400; letter-spacing: -0.025em">Answers before<br>you <em class="s">begin</em></h2>
+  </div>
+  <div style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); column-gap: 48px">
+    <div style="display: flex; flex-direction: column">
+      <details open="" style="border-bottom: 1px solid #D0D6D2; padding: 20px 0"><summary style="font-size: 16px; font-weight: 500; color: {{accent}}; display: flex; justify-content: space-between; gap: 16px">What do you help with?<span aria-hidden="true">−</span></summary><p style="margin: 14px 0 0; font-size: 14px; line-height: 1.65; color: #4E5A55">Anxiety, low mood, relationship strain, grief, burnout, life transitions and more. If we're not the right fit, we'll point you to someone who is.</p></details>
+      <details style="border-bottom: 1px solid #D0D6D2; padding: 20px 0"><summary style="font-size: 16px; font-weight: 500; display: flex; justify-content: space-between; gap: 16px">How do I book a session?<span aria-hidden="true">+</span></summary><p style="margin: 14px 0 0; font-size: 14px; line-height: 1.65; color: #4E5A55">Use the form above or call us. We'll reply within one working day.</p></details>
+      <details style="border-bottom: 1px solid #D0D6D2; padding: 20px 0"><summary style="font-size: 16px; font-weight: 500; display: flex; justify-content: space-between; gap: 16px">Can I have sessions online?<span aria-hidden="true">+</span></summary><p style="margin: 14px 0 0; font-size: 14px; line-height: 1.65; color: #4E5A55">Yes. Secure video sessions are available for every service.</p></details>
+      <details style="border-bottom: 1px solid #D0D6D2; padding: 20px 0"><summary style="font-size: 16px; font-weight: 500; display: flex; justify-content: space-between; gap: 16px">How long is a session?<span aria-hidden="true">+</span></summary><p style="margin: 14px 0 0; font-size: 14px; line-height: 1.65; color: #4E5A55">[SESSION LENGTH] minutes, with longer sessions for couples and families.</p></details>
+    </div>
+    <div style="display: flex; flex-direction: column">
+      <details open="" style="border-bottom: 1px solid #D0D6D2; padding: 20px 0"><summary style="font-size: 16px; font-weight: 500; color: {{accent}}; display: flex; justify-content: space-between; gap: 16px">How many sessions will I need?<span aria-hidden="true">−</span></summary><p style="margin: 14px 0 0; font-size: 14px; line-height: 1.65; color: #4E5A55">It depends on what you're working on. Many people notice a shift within the first few weeks, and we review progress together regularly.</p></details>
+      <details style="border-bottom: 1px solid #D0D6D2; padding: 20px 0"><summary style="font-size: 16px; font-weight: 500; display: flex; justify-content: space-between; gap: 16px">Can I choose my therapist?<span aria-hidden="true">+</span></summary><p style="margin: 14px 0 0; font-size: 14px; line-height: 1.65; color: #4E5A55">Absolutely. Tell us who you'd like to see, or let us match you.</p></details>
+      <details style="border-bottom: 1px solid #D0D6D2; padding: 20px 0"><summary style="font-size: 16px; font-weight: 500; display: flex; justify-content: space-between; gap: 16px">What happens in the first session?<span aria-hidden="true">+</span></summary><p style="margin: 14px 0 0; font-size: 14px; line-height: 1.65; color: #4E5A55">A relaxed conversation about what brought you here and what you'd like to change.</p></details>
+      <details style="border-bottom: 1px solid #D0D6D2; padding: 20px 0"><summary style="font-size: 16px; font-weight: 500; display: flex; justify-content: space-between; gap: 16px">Do you work with children and teens?<span aria-hidden="true">+</span></summary><p style="margin: 14px 0 0; font-size: 14px; line-height: 1.65; color: #4E5A55">[CONFIRM AGE RANGE AND POLICY]</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<section id="book" style="background: #24261A; color: #FFFFFF; padding: 120px 24px">
+  <div style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 56px; align-items: start">
+    <div style="display: flex; flex-direction: column; gap: 24px">
+      <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #C5C9A4">Book an appointment</span>
+      <h2 style="margin: 0; font-size: clamp(34px, 4vw, 52px); line-height: 1.08; font-weight: 400; letter-spacing: -0.025em">Take the first step <em class="s">today</em></h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; font-size: 13px; color: #D6D9BE">
+        <span style="display: flex; align-items: center; gap: 8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C5C9A4" stroke-width="2" aria-hidden="true"><path d="M4 12l5 5L20 6"></path></svg>Confidential</span>
+        <span style="display: flex; align-items: center; gap: 8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C5C9A4" stroke-width="2" aria-hidden="true"><path d="M4 12l5 5L20 6"></path></svg>Qualified therapists</span>
+        <span style="display: flex; align-items: center; gap: 8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C5C9A4" stroke-width="2" aria-hidden="true"><path d="M4 12l5 5L20 6"></path></svg>Flexible scheduling</span>
+      </div>
+      
+      
+    </div>
+    <form style="background: #FFFFFF; color: #1E2014; border-radius: 20px; padding: 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px">
+      <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500">Full name<input type="text" placeholder="Your name" style="padding: 13px 14px; border-radius: 10px; border: 1px solid #CBD2CD; background: #F6F7F5; font-size: 14px"></label>
+      <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500">Email<input type="email" placeholder="you@email.com" style="padding: 13px 14px; border-radius: 10px; border: 1px solid #CBD2CD; background: #F6F7F5; font-size: 14px"></label>
+      <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500">Phone<input type="tel" placeholder="Phone number" style="padding: 13px 14px; border-radius: 10px; border: 1px solid #CBD2CD; background: #F6F7F5; font-size: 14px"></label>
+      <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500">Service<select style="padding: 13px 14px; border-radius: 10px; border: 1px solid #CBD2CD; background: #F6F7F5; font-size: 14px"><option>Individual therapy</option><option>Couples counselling</option><option>Family sessions</option><option>Anxiety &amp; stress</option></select></label>
+      <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500">Preferred date<input type="date" style="padding: 12px 14px; border-radius: 10px; border: 1px solid #CBD2CD; background: #F6F7F5; font-size: 14px"></label>
+      <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500">Preferred time<input type="time" style="padding: 12px 14px; border-radius: 10px; border: 1px solid #CBD2CD; background: #F6F7F5; font-size: 14px"></label>
+      <label style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500">Anything you'd like us to know?<textarea rows="5" placeholder="Optional" style="padding: 13px 14px; border-radius: 10px; border: 1px solid #CBD2CD; background: #F6F7F5; font-size: 14px; resize: vertical"></textarea></label>
+      <button type="button" style="grid-column: 1 / -1; justify-self: start; background: {{accent}}; color: #FFFFFF; border: 0; padding: 14px 28px; border-radius: 999px; font-size: 14px; font-weight: 500; cursor: pointer">Request appointment</button>
+    </form>
+  </div>
+</section><footer style="background: #24261A; color: #FFFFFF; padding: 96px 24px 32px">
+  <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 64px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; align-items: flex-start">
+      <div style="display: flex; flex-direction: column; gap: 14px; max-width: 360px">
+        <span style="font-size: 44px; font-weight: 500; letter-spacing: -0.03em">Leya.M</span>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #C9CCB3">Helping you feel steadier, one conversation at a time.</p>
+      </div>
+      <form style="display: flex; flex-direction: column; gap: 16px; flex: 0 1 460px">
+        <label for="nl" style="font-size: 22px; font-weight: 400">Get our newsletter</label>
+        <div style="display: flex; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px">
+          <input id="nl" type="email" placeholder="Your email address" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #FFFFFF; font-size: 14px; padding: 10px 0">
+          <button type="button" style="background: #FFFFFF; color: #1E2014; border: 0; padding: 11px 22px; border-radius: 999px; font-size: 13px; font-weight: 500; cursor: pointer">Subscribe</button>
+        </div>
+      </form>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 40px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 48px">
+      <div style="display: flex; flex-direction: column; gap: 18px; font-size: 14px">
+        <div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; letter-spacing: 0.12em; color: #C5C9A4">CALL US</span><span>[PHONE NUMBER]</span></div>
+        <div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; letter-spacing: 0.12em; color: #C5C9A4">EMAIL</span><span>[EMAIL ADDRESS]</span></div>
+        <div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; letter-spacing: 0.12em; color: #C5C9A4">VISIT</span><span>[STREET ADDRESS]</span></div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; font-size: 14px"><span style="font-weight: 500; margin-bottom: 4px">Quick links</span><a href="#about" style="color: #C9CCB3; text-decoration: none">About</a><a href="#services" style="color: #C9CCB3; text-decoration: none">Services</a><a href="#book" style="color: #C9CCB3; text-decoration: none">Book</a><a href="#" style="color: #C9CCB3; text-decoration: none">Careers</a><a href="#" style="color: #C9CCB3; text-decoration: none">Fees</a></div>
+      <div style="display: flex; flex-direction: column; gap: 12px; font-size: 14px"><span style="font-weight: 500; margin-bottom: 4px">Services</span><a href="#" style="color: #C9CCB3; text-decoration: none">Individual therapy</a><a href="#" style="color: #C9CCB3; text-decoration: none">Couples counselling</a><a href="#" style="color: #C9CCB3; text-decoration: none">Family sessions</a><a href="#" style="color: #C9CCB3; text-decoration: none">Anxiety &amp; stress</a></div>
+      <div style="display: flex; flex-direction: column; gap: 12px; font-size: 14px"><span style="font-weight: 500; margin-bottom: 4px">Follow</span><a href="#" style="color: #C9CCB3; text-decoration: none">Instagram</a><a href="#" style="color: #C9CCB3; text-decoration: none">LinkedIn</a><a href="#" style="color: #C9CCB3; text-decoration: none">Facebook</a><a href="#" style="color: #C9CCB3; text-decoration: none">YouTube</a></div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 24px; font-size: 12px; color: #B3B79A">
+      <span>© 2026 LEYA M</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px"><a href="#" style="color: #B3B79A; text-decoration: none">Terms</a><a href="#" style="color: #B3B79A; text-decoration: none">Privacy</a><a href="#" style="color: #B3B79A; text-decoration: none">Sitemap</a></div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#636B2F","options":["#636B2F","#1E2014","#7A5A3A","#3B5B7A"]},"$preview":{"width":1440,"height":8200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#636B2F' };
+  }
+}
+</script>
+</body>
+</html>
