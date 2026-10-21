@@ -129,7 +129,7 @@ export function postsPage({ csrf, posts, unread, today }) {
         <div class="image-box">
           <img id="f-image-preview" alt="Featured image preview">
           <div class="stack" style="gap: 8px; flex: 1 1 200px">
-            <span class="hint">JPG or PNG, at least 1600px wide</span>
+            <span class="hint">JPG or PNG, at least 1600px wide, under 4MB</span>
             <div class="btn-row">
               <label class="btn small">Replace<input type="file" id="f-image-file" accept="image/jpeg,image/png,image/webp" class="sr-only"></label>
               <button type="button" class="btn small danger-text" id="f-image-remove">Remove</button>

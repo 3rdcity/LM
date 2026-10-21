@@ -3,13 +3,15 @@ import crypto from 'node:crypto';
 const COOKIE = 'lm_admin';
 const MAX_AGE_S = 60 * 60 * 24 * 14;
 
-// Without SESSION_SECRET, sessions are signed with a per-boot key, so a
-// restart logs everyone out. Fine locally, set it in production.
-const SECRET = process.env.SESSION_SECRET || crypto.randomBytes(32).toString('hex');
-export const sessionSecretIsEphemeral = !process.env.SESSION_SECRET;
+// Sessions are signed with SESSION_SECRET. Without one, the key is derived
+// from ADMIN_PASSWORD, so every server instance (Netlify runs many) agrees on
+// it, and changing the password logs everyone out.
+const secret = () =>
+  process.env.SESSION_SECRET || crypto.createHash('sha256').update('lm-session:' + (process.env.ADMIN_PASSWORD || '')).digest('hex');
+export const sessionSecretIsDerived = () => !process.env.SESSION_SECRET;
 export const adminEnabled = () => !!process.env.ADMIN_PASSWORD;
 
-const sign = (v) => crypto.createHmac('sha256', SECRET).update(v).digest('base64url');
+const sign = (v) => crypto.createHmac('sha256', secret()).update(v).digest('base64url');
 
 function safeEqual(a, b) {
   const x = Buffer.from(String(a));

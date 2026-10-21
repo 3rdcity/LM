@@ -283,7 +283,7 @@
   // ---------- Images
   async function upload(file) {
     if (!file) return null;
-    if (file.size > 8 * 1024 * 1024) { toast('That image is over 8MB. Please use a smaller one.', true); return null; }
+    if (file.size > 4 * 1024 * 1024) { toast('That image is over 4MB. Please use a smaller one.', true); return null; }
     toast('Uploading image…');
     try {
       const { url } = await api('POST', '/admin/api/upload', file, { 'Content-Type': file.type });

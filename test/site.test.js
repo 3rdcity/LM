@@ -88,8 +88,8 @@ test('contact form validates, saves and offers newsletter opt-in', async () => {
   const ok = await post('/contact', { name: 'Ada', email: 'ada@example.com', topic: 'Mentorship', message: 'Hi', newsletter: '1' });
   assert.equal(ok.status, 303);
   assert.match(ok.headers.get('location'), /sent=1/);
-  assert.equal(store.allMessages()[0].name, 'Ada');
-  assert.ok(store.allSubscribers().some((s) => s.email === 'ada@example.com'));
+  assert.equal((await store.allMessages())[0].name, 'Ada');
+  assert.ok((await store.allSubscribers()).some((s) => s.email === 'ada@example.com'));
 });
 
 test('newsletter rejects open redirects and duplicates', async () => {
