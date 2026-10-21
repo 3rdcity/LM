@@ -8,6 +8,7 @@ import { site } from './src/site.js';
 import { html } from './src/views/html.js';
 import * as pages from './src/views/pages.js';
 import * as admin from './src/views/admin.js';
+import { wellnessPage } from './src/views/wellness.js';
 import * as auth from './src/auth.js';
 import { sendContactEmail, mailConfigured } from './src/mail.js';
 
@@ -44,6 +45,7 @@ app.get('/', async (req, res) => {
 
 app.get('/about', (req, res) => send(res, pages.aboutPage({ nl: nlState(req) })));
 app.get('/philanthropy', (req, res) => send(res, pages.philanthropyPage({ nl: nlState(req) })));
+app.get('/wellness-without-limits', (req, res) => send(res, wellnessPage({ nl: nlState(req) })));
 
 app.get('/stories', async (req, res) => {
   const topic = site.categories.includes(req.query.topic) ? req.query.topic : null;
@@ -146,7 +148,7 @@ app.get('/privacy', legal('Privacy policy', '/privacy'));
 
 app.get('/robots.txt', (req, res) => res.type('text/plain').send(`User-agent: *\nDisallow: /admin\nSitemap: ${site.url}/sitemap.xml\n`));
 app.get('/sitemap.xml', async (req, res) => {
-  const urls = ['/', '/about', '/stories', '/philanthropy', '/contact', ...(await store.livePosts()).map((p) => `/stories/${p.slug}`)];
+  const urls = ['/', '/about', '/stories', '/philanthropy', '/wellness-without-limits', '/contact', ...(await store.livePosts()).map((p) => `/stories/${p.slug}`)];
   const body = urls.map((u) => `  <url><loc>${site.url}${u}</loc></url>`).join('\n');
   res.type('application/xml').send(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`);
 });

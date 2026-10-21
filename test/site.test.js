@@ -38,7 +38,7 @@ async function login() {
 }
 
 test('public pages render', async () => {
-  for (const p of ['/', '/about', '/stories', '/philanthropy', '/contact', '/terms', '/privacy', '/sitemap.xml']) {
+  for (const p of ['/', '/about', '/stories', '/philanthropy', '/wellness-without-limits', '/contact', '/terms', '/privacy', '/sitemap.xml']) {
     assert.equal((await get(p)).status, 200, p);
   }
   assert.equal((await get('/no-such-page')).status, 404);

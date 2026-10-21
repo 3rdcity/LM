@@ -27,6 +27,7 @@ Open http://localhost:3000. The admin is at http://localhost:3000/admin.
 | `/stories` | Blog listing, `?topic=` filters by category | `journal.dc.html` |
 | `/stories/:slug` | Single post | `article.dc.html` |
 | `/philanthropy` | Philanthropy | `philanthropy.dc.html` |
+| `/wellness-without-limits` | Wellness Without Limits landing page, its own brand look | client mockup (no `.dc.html`) |
 | `/contact` | Contact form | `contact.dc.html` |
 | `/admin` | Blog editor, messages, subscribers | `admin.dc.html` |
 
@@ -100,3 +101,4 @@ Decisions taken on the brief's "known issues", for the client to confirm:
 - The article page drops the therapy "Book a free call" box, and the journal intro no longer mentions therapists.
 - The admin keeps the posts editor from the design and adds working Messages and Subscribers screens. The Dashboard, Pages, Media and Settings links in the design had nothing behind them, so they're left out.
 - Photos were recompressed (4.2MB down to 1.2MB). `garden-pergola.png` is now a JPG.
+- The Wellness Without Limits page (`src/views/wellness.js`, `public/css/wwl.css`) keeps the mockup's copy word for word, lorem ipsum included. Its photos in `images/wwl/` were cut from the low-res mockup as stand-ins, so they look soft. Replace them with the original photos at the same file names.

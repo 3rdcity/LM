@@ -72,7 +72,7 @@ export function breadcrumb(label) {
   return html`<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">${label}</span></nav>`;
 }
 
-const NL_NOTES = {
+export const NL_NOTES = {
   ok: ['ok', "You're on the list. Thank you!"],
   exists: ['ok', "You're already subscribed. Thank you!"],
   invalid: ['err', 'That email address doesn’t look right. Please try again.'],

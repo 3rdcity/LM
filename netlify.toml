@@ -4,7 +4,7 @@
 [build]
   # Photos live in images/ (the designs link to them there); copy them in
   # next to the CSS and JS so the CDN serves them.
-  command = "mkdir -p public/images && cp images/* public/images/"
+  command = "mkdir -p public/images && cp -R images/. public/images/"
   publish = "public"
 
 [build.environment]
