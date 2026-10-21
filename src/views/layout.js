@@ -11,6 +11,7 @@ export function layout({ title, description, image, path = '/', body, scripts = 
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
 <title>${fullTitle}</title>
 ${description && html`<meta name="description" content="${description}">`}
 ${robots && html`<meta name="robots" content="${robots}">`}
@@ -30,7 +31,7 @@ ${image && html`<meta property="og:image" content="${image.startsWith('http') ? 
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 ${body}
-${scripts.map((s) => html`<script src="${s}" defer></script>`)}
+${['/js/nav.js', ...scripts].map((s) => html`<script src="${s}" defer></script>`)}
 </body>
 </html>`;
 }

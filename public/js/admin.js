@@ -110,6 +110,7 @@
     $('editor').hidden = !p;
     if (!p) return;
     $('f-title').value = p.title || '';
+    fitTitle();
     $('f-category').value = p.category || boot.categories[0];
     $('f-author').value = p.author || '';
     $('f-date').value = p.date || '';
@@ -156,12 +157,36 @@
     renderEditorMeta();
   }
 
+  // On narrow screens the list and the editor take turns filling the screen.
+  const narrow = () => window.matchMedia('(max-width: 900px)').matches;
+  function showEditor(on) {
+    $('panes').classList.toggle('show-editor', on);
+    if (on) fitTitle();
+    if (narrow()) window.scrollTo({ top: on ? $('panes').offsetTop - 12 : 0 });
+  }
+
   function select(id) {
     state.selected = id;
     render();
     fillEditor();
-    if (window.matchMedia('(max-width: 900px)').matches) $('editor').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    showEditor(true);
   }
+
+  $('back-to-list').addEventListener('click', () => {
+    showEditor(false);
+    const row = document.querySelector('#post-list .row[aria-pressed="true"]');
+    if (row && narrow()) row.scrollIntoView({ block: 'center' });
+  });
+
+  // The title wraps onto more lines instead of scrolling sideways.
+  const title = $('f-title');
+  const fitTitle = () => { title.style.height = 'auto'; title.style.height = title.scrollHeight + 'px'; };
+  title.addEventListener('keydown', (e) => { if (e.key === 'Enter') e.preventDefault(); });
+  title.addEventListener('input', () => {
+    if (/\n/.test(title.value)) title.value = title.value.replace(/\s*\n\s*/g, ' ');
+    fitTitle();
+  });
+  window.addEventListener('resize', fitTitle);
 
   // ---------- Editing
   function edit(field, value) {
@@ -249,6 +274,7 @@
       state.selected = rows()[0]?.id ?? state.posts[0]?.id ?? null;
       render();
       fillEditor();
+      if (narrow()) showEditor(false);
     } catch (err) {
       toast(err.message, true);
     }

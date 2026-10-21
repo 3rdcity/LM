@@ -117,7 +117,7 @@ ${latest.length > 0 && html`<section id="journal" class="section section-white">
     <div class="section-head-row" style="gap: 24px">
       <div class="section-head">
         <span class="eyebrow">From the journal</span>
-        <h2 class="h2 reveal">Notes for the <em class="s">in-between</em> days</h2>
+        <h2 class="h2 reveal">Notes for the <em class="s nowrap">in-between</em> days</h2>
       </div>
       <a class="btn btn-primary" href="/stories">All articles</a>
     </div>
@@ -479,7 +479,7 @@ ${barHeader('stories')}
 <section class="wrap journal-intro">
   <div class="section-head" style="max-width: 640px">
     <span class="eyebrow">The journal</span>
-    <h1 class="h1" style="font-size: clamp(42px, 5.5vw, 72px)">Notes for the <em class="s">in-between</em> days</h1>
+    <h1 class="h1" style="font-size: clamp(42px, 5.5vw, 72px)">Notes for the <em class="s nowrap">in-between</em> days</h1>
   </div>
   <p class="lede" style="max-width: 380px">Practical ideas and honest reflections. Short reads, written for real life.</p>
 </section>
@@ -538,10 +538,8 @@ ${preview && html`<div class="preview-bar" role="status">Preview · this post is
   <div class="byline">
     <span class="avatar" aria-hidden="true"></span>
     <span class="stack" style="gap: 2px"><strong>${author}</strong><small>${copy.authorRole}</small></span>
-    <span class="dot" aria-hidden="true">·</span>
-    <span>${p.date ? html`<time datetime="${p.date}">${formatDate(p.date)}</time>` : '[Date]'}</span>
-    <span class="dot" aria-hidden="true">·</span>
-    <span>${readMinutes(p.body)} min read</span>
+    <span class="dot lead" aria-hidden="true">·</span>
+    <span class="when">${p.date ? html`<time datetime="${p.date}">${formatDate(p.date)}</time>` : '[Date]'}<span class="dot" aria-hidden="true">·</span>${readMinutes(p.body)} min read</span>
   </div>
 </section>
 

@@ -91,10 +91,11 @@ export function postsPage({ csrf, posts, unread, today }) {
 
   <div role="tablist" aria-label="Filter by status" class="tabs" id="tabs"></div>
 
-  <div class="panes">
+  <div class="panes" id="panes">
     <section aria-label="Posts" class="post-list" id="post-list"></section>
 
     <section aria-label="Edit post" class="editor" id="editor" hidden>
+      <button type="button" class="back-to-list" id="back-to-list">← All posts</button>
       <div class="editor-head">
         <div class="editing">Editing <span class="pill" id="cur-status"></span><span class="unsaved" id="unsaved" hidden>Unsaved changes</span></div>
         <div class="editor-actions">
@@ -107,7 +108,7 @@ export function postsPage({ csrf, posts, unread, today }) {
       <div role="status" class="toast" id="toast" hidden></div>
 
       <label class="field">Title
-        <input type="text" id="f-title" class="title-input" placeholder="Post title">
+        <textarea id="f-title" class="title-input" rows="1" placeholder="Post title"></textarea>
       </label>
       <span class="slug" id="slug"></span>
 

@@ -41,13 +41,17 @@ export const longArrow = raw('<svg width="176" height="8" viewBox="0 0 176 8" fi
 export function siteNav(current) {
   return html`<nav class="site-nav" aria-label="Main">
     <a class="logo" href="/"><em class="s">${site.name}</em></a>
-    <div class="nav-links">
+    <div class="nav-links" id="nav-links">
       ${NAV.map((n) => html`<a href="${n.href}"${raw(n.key === current ? ' aria-current="page"' : '')}>${n.label}</a>`)}
     </div>
-    <a class="nav-cta" href="/contact#form">
+    <a class="nav-cta" href="/contact#form" aria-label="Get in touch">
       <span class="ring">${icons.mail(16)}</span>
       <span class="two-line"><small>Say hello</small>Get in touch</span>
     </a>
+    <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="nav-links">
+      <span class="sr-only">Menu</span>
+      <span class="bars" aria-hidden="true"><span></span><span></span></span>
+    </button>
   </nav>`;
 }
 
