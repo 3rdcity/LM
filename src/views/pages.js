@@ -37,7 +37,7 @@ ${hero({
         <span class="avatars" aria-hidden="true"><span></span><span></span><span></span></span>
         <span>${stats.peopleSupported}+ people supported</span>
       </div>
-      <div class="chips"><span class="chip">Faith-led</span><span class="chip">Wellness advocate</span><span class="chip">Anxiety &amp; stress</span></div>
+      <div class="chips"><span class="chip">Faith-led</span><span class="chip">Wellness advocate</span></div>
     </div>`,
 })}
 <main id="main">
