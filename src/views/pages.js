@@ -77,9 +77,9 @@ ${hero({
       </div>
     </div>
     <div class="venture-grid">
-      ${ventureCard({ n: '01', title: 'Her Secret Place', img: '/images/wwl-card.jpg', alt: 'A wellness card resting among fresh greens beside a woven basket', pos: 'center 45%', text: 'A retreat for women to step away, rest and reconnect with faith.', href: '/philanthropy#initiatives' })}
-      ${ventureCard({ n: '02', title: 'Wellness Without Limits', img: '/images/portrait-arimah-travel.jpg', alt: 'Leya smiling with arms folded, leaning against a wall', pos: 'center 22%', text: 'A celebration of health, hope and wellness. Bringing holistic, faith-rooted care to women, drawing on African wellness traditions.', href: v.wellnessWithoutLimits, featured: true })}
-      ${ventureCard({ n: '03', title: 'Arimah Travel and Tours', img: '/images/garden-pergola.jpg', alt: 'A quiet garden path under a vine-covered pergola', pos: 'center 50%', text: copy.travelLine, href: v.arimahTravel })}
+      ${ventureCard({ n: '01', title: 'Her Secret Place', img: '/images/reading-journal.jpg', alt: 'Leya reading her Secret Place journal at a wooden table', pos: 'center 40%', text: 'A retreat for women to step away, rest and reconnect with faith.', href: '/philanthropy#initiatives' })}
+      ${ventureCard({ n: '02', title: 'Wellness Without Limits', img: '/images/wwl-card.jpg', alt: 'A Wellness Without Limits card resting among fresh greens beside a woven basket', pos: 'center 45%', text: 'A celebration of health, hope and wellness. Bringing holistic, faith-rooted care to women, drawing on African wellness traditions.', href: v.wellnessWithoutLimits, featured: true })}
+      ${ventureCard({ n: '03', title: 'Arimah Travel and Tours', img: '/images/portrait-arimah-travel.jpg', alt: 'Leya in an Arimah Travel shirt, smiling with arms folded', pos: 'center 22%', text: copy.travelLine, href: v.arimahTravel })}
     </div>
   </div>
 </section>
