@@ -8,6 +8,11 @@ import { renderMarkdown } from '../markdown.js';
 const ext = (url) => (url ? raw(' target="_blank" rel="noopener"') : '');
 
 // ---------------------------------------------------------------- Home
+// Wellness Without Limits links to its own site when there is one, otherwise
+// to its card on the philanthropy page.
+const wwlLink = () => site.ventures.wellnessWithoutLimits || '/philanthropy#wellness-without-limits';
+const arrow = (href) => (href.startsWith('http') ? '↗' : '→');
+
 export function homePage({ latest, nl }) {
   const { ventures: v, copy, stats, video } = site;
   const body = html`
@@ -53,7 +58,7 @@ ${hero({
         </div>
         <div class="walk-item">
           <span class="icon-chip round">${icons.heartPlus(18)}</span>
-          <div><a href="${v.wellnessWithoutLimits}"${ext(v.wellnessWithoutLimits)}>Explore Wellness Without Limits ↗</a><p>My heart project: a celebration of health, hope and wellness.</p></div>
+          <div><a href="${wwlLink()}"${ext(v.wellnessWithoutLimits)}>Explore Wellness Without Limits ${arrow(wwlLink())}</a><p>My heart project: a celebration of health, hope and wellness.</p></div>
         </div>
         <div class="walk-item">
           <span class="icon-chip round">${icons.book(18)}</span>
@@ -78,7 +83,7 @@ ${hero({
     </div>
     <div class="venture-grid">
       ${ventureCard({ n: '01', title: 'Her Secret Place', img: '/images/reading-journal.jpg', alt: 'Leya reading her Secret Place journal at a wooden table', pos: 'center 40%', text: 'A retreat for women to step away, rest and reconnect with faith.', href: '/philanthropy#initiatives' })}
-      ${ventureCard({ n: '02', title: 'Wellness Without Limits', img: '/images/wwl-card.jpg', alt: 'A Wellness Without Limits card resting among fresh greens beside a woven basket', pos: 'center 45%', text: 'A celebration of health, hope and wellness. Bringing holistic, faith-rooted care to women, drawing on African wellness traditions.', href: v.wellnessWithoutLimits, featured: true })}
+      ${ventureCard({ n: '02', title: 'Wellness Without Limits', img: '/images/wwl-card.jpg', alt: 'A Wellness Without Limits card resting among fresh greens beside a woven basket', pos: 'center 45%', text: 'A celebration of health, hope and wellness. Bringing holistic, faith-rooted care to women, drawing on African wellness traditions.', href: wwlLink(), featured: true })}
       ${ventureCard({ n: '03', title: 'Arimah Travel and Tours', img: '/images/portrait-arimah-travel.jpg', alt: 'Leya in an Arimah Travel shirt, smiling with arms folded', pos: 'center 22%', text: copy.travelLine, href: v.arimahTravel })}
     </div>
   </div>
@@ -199,7 +204,7 @@ ${hero({
       <p class="lede">My work blends African wellness, storytelling and faith-driven principles to help others live healthy, whole and grace-filled lives, with intention and balance across faith, family and purpose.</p>
     </div>
     <div class="card-grid">
-      ${aboutVenture(icons.heartPlus(24), 'Wellness Without Limits', 'Holistic wellness for women, rooted in African wellness traditions and faith.', v.wellnessWithoutLimits, 'Visit site ↗')}
+      ${aboutVenture(icons.heartPlus(24), 'Wellness Without Limits', 'Holistic wellness for women, rooted in African wellness traditions and faith.', wwlLink(), v.wellnessWithoutLimits ? 'Visit site ↗' : 'Learn more →')}
       ${aboutVenture(icons.mic(24), 'The Unqualified Podcast', copy.podcastLine, v.podcast, 'Listen ↗')}
       ${aboutVenture(icons.globe(24), 'Arimah Travel &amp; Tours', copy.travelLine, v.arimahTravel, 'Visit site ↗')}
       ${aboutVenture(icons.house(24), 'The Arimah Foundation', copy.foundationLine, v.foundation || '/philanthropy#initiatives', 'Learn more →')}
@@ -304,7 +309,7 @@ ${hero({
     </div>
     <div class="initiative-grid">
       ${initiative({ img: '/images/garden-pergola.jpg', alt: 'A quiet garden path under a vine-covered pergola', label: 'Foundation', title: 'The Arimah Foundation', text: copy.foundationMission, href: v.foundation, cta: 'About the foundation →' })}
-      ${initiative({ img: '/images/wwl-card.jpg', alt: 'A Wellness Without Limits card among fresh greens', pos: 'center 45%', label: 'My heart project', title: 'Wellness Without Limits', text: 'A celebration of health, hope and wellness. Bringing holistic, faith-rooted care to women, drawing on African wellness traditions.', href: v.wellnessWithoutLimits, cta: 'Visit Wellness Without Limits ↗' })}
+      ${initiative({ id: 'wellness-without-limits', img: '/images/wwl-card.jpg', alt: 'A Wellness Without Limits card among fresh greens', pos: 'center 45%', label: 'My heart project', title: 'Wellness Without Limits', text: 'A celebration of health, hope and wellness. Bringing holistic, faith-rooted care to women, drawing on African wellness traditions.', href: v.wellnessWithoutLimits, cta: v.wellnessWithoutLimits && 'Visit Wellness Without Limits ↗' })}
       ${initiative({ img: '/images/reading-journal.jpg', alt: 'Leya reading her journal', pos: 'center 45%', label: 'Retreat', title: 'Her Secret Place', text: `A retreat for women to step away, rest and reconnect with faith. ${copy.retreatDetails}`, href: v.herSecretPlace, cta: 'Learn about the retreat →' })}
       ${initiative({ img: '/images/eyes-closed-sunlight.jpg', alt: 'Leya with eyes closed in warm sunlight', pos: 'center 28%', label: 'Podcast', title: 'The Unqualified Podcast', text: "Honest conversations for anyone who has ever been made to feel they aren't enough. Free to listen, wherever you are.", href: v.podcast, cta: 'Listen now ↗' })}
     </div>
@@ -372,15 +377,15 @@ ${footer({ path: '/philanthropy', nl, blurb: 'Reflections on wellness, faith and
   });
 }
 
-function initiative({ img, alt, pos = 'center', label, title, text, href, cta }) {
+function initiative({ id, img, alt, pos = 'center', label, title, text, href, cta }) {
   const external = href && href.startsWith('http');
-  return html`<article class="initiative reveal">
+  return html`<article class="initiative reveal"${raw(id ? ` id="${id}"` : '')}>
     <div class="initiative-media"><img src="${img}" alt="${alt}" loading="lazy" style="object-position: ${pos}"></div>
     <div class="initiative-body">
       <span class="label">${label}</span>
       <h3>${title}</h3>
       <p>${text}</p>
-      <a href="${link(href)}"${raw(external ? ' target="_blank" rel="noopener"' : '')}>${cta}</a>
+      ${cta && html`<a href="${link(href)}"${raw(external ? ' target="_blank" rel="noopener"' : '')}>${cta}</a>`}
     </div>
   </article>`;
 }

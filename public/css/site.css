@@ -296,7 +296,7 @@ a:active, button:active { transform: scale(.98); }
 
 /* =================================================== Philanthropy */
 .initiative-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: 24px; }
-.initiative { background: var(--surface); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; transition: transform .35s ease, box-shadow .35s ease; }
+.initiative { scroll-margin-top: 32px; background: var(--surface); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; transition: transform .35s ease, box-shadow .35s ease; }
 .initiative:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(30, 32, 20, .08); }
 .initiative-media { overflow: hidden; height: 300px; }
 .initiative-media img { display: block; width: 100%; height: 300px; object-fit: cover; background: #D3D6BF; transition: transform .8s ease; }

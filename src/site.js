@@ -22,7 +22,9 @@ export const site = {
   },
 
   ventures: {
-    wellnessWithoutLimits: 'https://wellnesswithoutlimits.org/',
+    // On hold for now: links go to the philanthropy page instead. Put
+    // 'https://wellnesswithoutlimits.org/' back here to link out again.
+    wellnessWithoutLimits: null,
     arimahTravel: 'https://arimahtravel.com/',
     podcast: null,
     foundation: null,
