@@ -1,0 +1,22 @@
+# Netlify deploy settings. Nothing to configure in the Netlify UI except
+# environment variables (see .env.example).
+
+[build]
+  # Photos live in images/ (the designs link to them there); copy them in
+  # next to the CSS and JS so the CDN serves them.
+  command = "mkdir -p public/images && cp images/* public/images/"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[functions]
+  directory = "netlify/functions"
+
+# Routing to the server function is set in netlify/functions/server.mjs
+# (config.path), with real files in public/ served first.
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
