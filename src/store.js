@@ -112,10 +112,12 @@ export function normalizePost(input, existing = {}) {
   return p;
 }
 
-export async function createPost(input) {
+// `extra` carries fields the editor never sends, like where an imported
+// post came from.
+export async function createPost(input, extra = {}) {
   const all = await posts();
   const id = all.reduce((m, p) => Math.max(m, p.id), 0) + 1;
-  const p = normalizePost(input);
+  const p = { ...normalizePost(input), ...extra };
   p.id = id;
   p.slug = uniqueSlug(all, slugify(input.slug || p.title), id);
   p.createdAt = p.updatedAt = new Date().toISOString();

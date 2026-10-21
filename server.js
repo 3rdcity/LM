@@ -1,6 +1,5 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import crypto from 'node:crypto';
 import express from 'express';
 
 import * as store from './src/store.js';
@@ -10,6 +9,8 @@ import * as pages from './src/views/pages.js';
 import * as admin from './src/views/admin.js';
 import * as auth from './src/auth.js';
 import { sendContactEmail, mailConfigured } from './src/mail.js';
+import { IMAGE_TYPES, EXT_TYPES, looksLikeImage, newUploadName } from './src/images.js';
+import * as wordpress from './src/wordpress.js';
 
 // import.meta.url is empty once Netlify bundles this file as CommonJS. The
 // project root only matters for serving files locally, so fall back to cwd.
@@ -69,7 +70,7 @@ app.get('/stories/:slug', async (req, res, next) => {
 // Uploaded images live in storage (files locally, Netlify Blobs on Netlify).
 app.get('/uploads/:name', async (req, res, next) => {
   const name = req.params.name;
-  const type = { '.jpg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp' }[path.extname(name)];
+  const type = EXT_TYPES[path.extname(name)];
   if (!type || !/^[\w.-]+$/.test(name)) return next();
   const file = await store.getUpload(name);
   if (!file) return next();
@@ -192,6 +193,10 @@ adminRouter.post('/messages/:id/:action', auth.requireAdmin, auth.requireCsrf, a
   res.redirect(303, '/admin/messages');
 });
 
+adminRouter.get('/import', auth.requireAdmin, async (req, res) => {
+  send(res, admin.importPage({ csrf: auth.csrfToken(req), unread: await unread() }));
+});
+
 adminRouter.get('/subscribers', auth.requireAdmin, async (req, res) => {
   send(res, admin.subscribersPage({ csrf: auth.csrfToken(req), subscribers: await store.allSubscribers(), unread: await unread() }));
 });
@@ -207,10 +212,15 @@ adminRouter.get('/subscribers.csv', auth.requireAdmin, async (req, res) => {
   res.type('text/csv').send(rows.map((r) => r.map(cell).join(',')).join('\r\n') + '\r\n');
 });
 
+// Netlify Functions cap a request at 6MB, and uploads arrive base64-encoded
+// (a third bigger), so 4MB is the safe ceiling everywhere.
+const UPLOAD_LIMIT = '4mb';
+
 // JSON API for the post editor
 const apiRouter = express.Router();
 apiRouter.use(auth.requireAdmin);
-apiRouter.use(express.json({ limit: '1mb' }));
+// Room for long imported posts; still under Netlify's 6MB request cap.
+apiRouter.use(express.json({ limit: UPLOAD_LIMIT }));
 apiRouter.use((req, res, next) => (req.method === 'GET' ? next() : auth.requireCsrf(req, res, next)));
 
 apiRouter.get('/posts', async (req, res) => res.json({ posts: await store.allPosts() }));
@@ -225,24 +235,44 @@ apiRouter.delete('/posts/:id', async (req, res) => {
   res.json({ ok: true });
 });
 
-// Netlify Functions cap a request at 6MB, and uploads arrive base64-encoded
-// (a third bigger), so 4MB is the safe ceiling everywhere.
-const UPLOAD_LIMIT = '4mb';
-const IMAGE_TYPES = { 'image/jpeg': '.jpg', 'image/png': '.png', 'image/webp': '.webp' };
-// Checks the file's first bytes too, so a renamed file can't pose as an image.
-const looksLikeImage = (buf, type) =>
-  (type === 'image/jpeg' && buf[0] === 0xff && buf[1] === 0xd8) ||
-  (type === 'image/png' && buf.subarray(0, 4).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47]))) ||
-  (type === 'image/webp' && buf.subarray(0, 4).toString() === 'RIFF' && buf.subarray(8, 12).toString() === 'WEBP');
 
 apiRouter.post('/upload', express.raw({ type: Object.keys(IMAGE_TYPES), limit: UPLOAD_LIMIT }), async (req, res) => {
   const type = req.get('content-type');
-  const ext = IMAGE_TYPES[type];
-  if (!ext || !Buffer.isBuffer(req.body) || !req.body.length) return res.status(415).json({ error: 'Please upload a JPG, PNG or WebP image.' });
+  if (!IMAGE_TYPES[type] || !Buffer.isBuffer(req.body) || !req.body.length) return res.status(415).json({ error: 'Please upload a JPG, PNG, WebP or GIF image.' });
   if (!looksLikeImage(req.body, type)) return res.status(415).json({ error: 'That file doesn’t look like a valid image.' });
-  const name = `${store.today()}-${crypto.randomBytes(6).toString('hex')}${ext}`;
+  const name = newUploadName(type);
   await store.saveUpload(name, req.body, type);
   res.status(201).json({ url: `/uploads/${name}` });
+});
+
+// WordPress import: the admin page fetches a site's posts page by page,
+// then imports the chosen ones one at a time, so no request comes near
+// Netlify's 10-second limit.
+apiRouter.get('/import/site', async (req, res) => {
+  try {
+    const page = Math.max(1, parseInt(req.query.page, 10) || 1);
+    res.json(await wordpress.fetchSitePage(req.query.url, page, req.query.endpoint || undefined));
+  } catch (err) {
+    if (err instanceof wordpress.ImportError) return res.status(400).json({ error: err.message });
+    throw err;
+  }
+});
+
+apiRouter.post('/import/post', async (req, res) => {
+  const { post, options = {} } = req.body || {};
+  if (!post || typeof post !== 'object') return res.status(400).json({ error: 'Nothing to import.' });
+  try {
+    res.json(await wordpress.importPost(post, {
+      defaultCategory: options.defaultCategory,
+      asDrafts: options.asDrafts !== false,
+      copyImages: options.copyImages !== false,
+      skipExisting: options.skipExisting !== false,
+      siteUrl: typeof options.siteUrl === 'string' ? options.siteUrl : undefined,
+    }));
+  } catch (err) {
+    console.error('Import failed:', err);
+    res.json({ status: 'failed', title: String(post.title || 'Untitled post'), reason: err instanceof wordpress.ImportError ? err.message : 'Something went wrong saving this post.' });
+  }
 });
 
 apiRouter.use((err, req, res, next) => {

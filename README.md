@@ -33,6 +33,7 @@ Open http://localhost:3000. The admin is at http://localhost:3000/admin.
 ## What works
 
 - **Blog.** Write, edit, schedule and publish posts in `/admin`. Post bodies use Markdown, and the toolbar inserts it for you. Featured and inline images (up to 4MB) upload straight from the editor. A post published with a future date becomes *Scheduled* and goes live on that day by itself. Drafts and scheduled posts can be previewed while logged in.
+- **WordPress import.** In the admin, **Import** brings posts over from WordPress, either from the site's address (published posts, through WordPress's public API) or from an export file (**Tools → Export** in WordPress, which includes drafts). You pick which posts to bring over; the HTML is converted to Markdown, images are copied to this site, categories that match one here are kept, and posts already imported are flagged. Posts come in as drafts by default.
 - **Contact form.** Every message is saved to `/admin/messages`. Set `CONTACT_TO` and the SMTP settings and each one is also emailed to Leya, with reply-to set to the sender.
 - **Newsletter.** The footer form (and the contact form opt-in) collects addresses in `/admin/subscribers`. Download them as CSV for Mailchimp, Kit or similar.
 - **Donate.** Points at `DONATE_URL` once a payment provider is chosen. Until then it opens the contact form on the Arimah Foundation topic.
@@ -81,6 +82,8 @@ netlify.toml         Netlify build settings
 src/auth.js          admin login, sessions, CSRF
 src/mail.js          contact-form email
 src/markdown.js      post body rendering
+src/wordpress.js     WordPress import (site API + HTML to Markdown + image copying)
+src/images.js        image type checks shared by uploads and imports
 src/views/           page templates
 public/              CSS, JS, favicon
 images/              site photos

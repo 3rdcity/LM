@@ -9,6 +9,7 @@ const NAV = [
   { key: 'posts', href: '/admin', label: 'Blog posts', icon: svg('<path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/>') },
   { key: 'messages', href: '/admin/messages', label: 'Messages', icon: svg('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>') },
   { key: 'subscribers', href: '/admin/subscribers', label: 'Subscribers', icon: svg('<circle cx="9" cy="8" r="3.5"/><path d="M3 20c.8-3.5 3.3-5 6-5s5.2 1.5 6 5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 15c1.6.6 2.6 2.2 3 5"/>') },
+  { key: 'import', href: '/admin/import', label: 'Import', icon: svg('<path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 17v3h16v-3"/>') },
 ];
 
 function doc({ title, body, csrf, scripts = [] }) {
@@ -222,4 +223,77 @@ export function subscribersPage({ csrf, subscribers, unread }) {
         </tr>`)}</tbody>
       </table></div>`}`;
   return shell({ active: 'subscribers', title: 'Subscribers', csrf, unread, main, scripts: ['/js/admin-confirm.js'] });
+}
+
+export function importPage({ csrf, unread }) {
+  const boot = JSON.stringify({ categories: site.categories }).replace(/</g, '\\u003c');
+  const main = html`
+  <div class="topbar">
+    <div class="stack" style="gap: 4px">
+      <h1>Import from <em class="s">WordPress</em></h1>
+      <span class="sub">Bring existing posts over, with their images. Nothing is saved until you choose which posts to import.</span>
+    </div>
+  </div>
+
+  <section class="import-card" id="step-source" aria-labelledby="source-h">
+    <h2 id="source-h"><span class="step">1</span>Where are the posts?</h2>
+    <div role="tablist" aria-label="Import source" class="tabs" id="source-tabs">
+      <button type="button" role="tab" aria-selected="true" aria-controls="from-site" id="tab-site">From a WordPress site</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="from-file" id="tab-file">From an export file</button>
+    </div>
+
+    <form id="from-site" role="tabpanel" aria-labelledby="tab-site" class="stack" style="gap: 14px">
+      <label class="field">Site address
+        <input type="text" id="site-url" inputmode="url" autocomplete="url" placeholder="e.g. myblog.com or myblog.wordpress.com" required>
+      </label>
+      <p class="hint">Brings over published posts. For drafts, or if the site is private, use an export file instead.</p>
+      <button type="submit" class="btn primary" id="find-posts" style="align-self: flex-start">Find posts</button>
+    </form>
+
+    <div id="from-file" role="tabpanel" aria-labelledby="tab-file" class="stack" style="gap: 14px" hidden>
+      <label class="dropzone" id="dropzone">
+        <input type="file" id="wxr-file" accept=".xml,text/xml,application/xml" class="sr-only">
+        <strong>Choose your WordPress export file</strong>
+        <span class="hint">or drop it here (.xml)</span>
+      </label>
+      <p class="hint">In WordPress, go to <strong>Tools → Export</strong>, pick <strong>Posts</strong> and click <strong>Download Export File</strong>. Includes drafts and scheduled posts.</p>
+    </div>
+
+    <div role="status" class="toast" id="source-status" hidden></div>
+  </section>
+
+  <section class="import-card" id="step-pick" aria-labelledby="pick-h" hidden>
+    <h2 id="pick-h"><span class="step">2</span>Choose posts <span class="sub" id="found-label"></span></h2>
+
+    <div class="import-options">
+      <label class="field">Category for posts that don't match one here
+        <select id="default-category">${site.categories.map((c) => html`<option>${c}</option>`)}</select>
+      </label>
+      <label class="check"><input type="checkbox" id="as-drafts" checked> Import as drafts, so I can review them before they go live</label>
+      <label class="check"><input type="checkbox" id="copy-images" checked> Copy images to this site (recommended, so they keep working if the old site closes)</label>
+    </div>
+
+    <div class="pick-head">
+      <label class="check"><input type="checkbox" id="select-all" checked> <span id="select-label">Select all</span></label>
+    </div>
+    <div class="pick-list" id="pick-list"></div>
+
+    <div class="pick-foot">
+      <button type="button" class="btn primary" id="start-import">Import posts</button>
+      <button type="button" class="link-btn" id="start-over">Start over</button>
+    </div>
+  </section>
+
+  <section class="import-card" id="step-run" aria-labelledby="run-h" hidden>
+    <h2 id="run-h"><span class="step">3</span><span id="run-title">Importing…</span></h2>
+    <div class="progress" role="progressbar" aria-labelledby="run-h" aria-valuemin="0" id="progress"><span id="progress-bar"></span></div>
+    <p class="sub" id="progress-label" aria-live="polite"></p>
+    <ul class="results" id="results"></ul>
+    <div class="pick-foot" id="run-done" hidden>
+      <a class="btn primary" href="/admin">Go to blog posts</a>
+      <button type="button" class="link-btn" id="import-more">Import more</button>
+    </div>
+  </section>
+  <script type="application/json" id="boot">${raw(boot)}</script>`;
+  return shell({ active: 'import', title: 'Import from WordPress', csrf, unread, main, scripts: ['/js/admin-import.js'] });
 }
