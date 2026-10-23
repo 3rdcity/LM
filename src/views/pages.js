@@ -44,7 +44,7 @@ ${hero({
 
 <section id="about" class="section">
   <div class="wrap split home-about">
-    <img class="photo reveal" src="/images/portrait-smiling-field.jpg" alt="Leya Mnangagwa smiling softly in a sunlit field" style="object-position: center 25%">
+    <img class="photo reveal" src="/images/kettlebell-training.jpg" alt="Leya in a gym, bent over a bench lifting a 12kg kettlebell" style="object-position: center 30%">
     <div class="stack">
       <span class="eyebrow">About me</span>
       <h2 class="h2 reveal">A life lived <em class="s">in full colour</em></h2>
