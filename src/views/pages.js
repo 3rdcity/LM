@@ -18,15 +18,15 @@ export function homePage({ latest, nl }) {
   const body = html`
 ${hero({
   current: 'home',
-  image: '/images/hero-wildflower-field.jpg',
-  pos: '62% 35%',
-  shade: 0.42,
   minHeight: 760,
-  label: 'A woman with eyes closed and hands clasped, standing in a field of yellow wildflowers at golden hour',
+  slides: [
+    { image: '/images/hero-wildflower-field.jpg', pos: '62% 35%', shade: 0.42, label: 'Leya with eyes closed and hands clasped, standing in a field of yellow wildflowers at golden hour' },
+    { image: '/images/gym-training.jpg', pos: 'center 45%', posMobile: '40% center', shade: 0.34, label: 'Leya crouched low on a gym floor mid-workout, in a cap, gloves and camo leggings' },
+  ],
   body: html`
     <div>
       <span class="eyebrow light">Faith-led wellness advocate</span>
-      <h1 class="h1">Room to breathe.<br>Help that <em class="s">stays</em></h1>
+      <h1 class="h1">Room to breathe. <br>Help that <em class="s">stays</em></h1>
       <div class="hero-intro">
         <a class="btn btn-light" href="#about">Explore</a>
         <p>I’m Leya Mnangagwa, a faith-led leader, wellness advocate, founder and mother of four learning to live in truth every day.</p>
@@ -74,7 +74,7 @@ ${hero({
     <div class="section-head-row">
       <div class="section-head">
         <span class="eyebrow">Our services</span>
-        <h2 class="h2 reveal">Support shaped around<br><em class="s">your</em> life</h2>
+        <h2 class="h2 reveal">Support shaped around <br><em class="s">your</em> life</h2>
       </div>
       <div class="stack" style="gap: 20px; max-width: 380px">
         <p style="font-size: 15px; line-height: 1.65">These are the spaces I pour my energy and heart into. From conversations that stretch us, to experiences that [COPY TO COME]</p>
@@ -93,7 +93,7 @@ ${hero({
   <div class="wrap stack" style="gap: 56px">
     <div class="section-head center">
       <span class="eyebrow">Get to know me</span>
-      <h2 class="h2 reveal">The values I live by,<br><em class="s">every day</em></h2>
+      <h2 class="h2 reveal">The values I live by, <br><em class="s">every day</em></h2>
       <p class="lede" style="max-width: 520px; margin: 0 auto">Four things shape every venture I build, every room I walk into and every conversation at my kitchen table.</p>
     </div>
     <div class="values-grid">
@@ -136,6 +136,7 @@ ${footer({ path: '/', nl })}`;
     path: '/',
     description: 'Leya Mnangagwa: faith-led wellness advocate, founder, mentor and mother of four. Honest reflections on faith, family and wellness.',
     image: '/images/hero-wildflower-field.jpg',
+    scripts: ['/js/hero-slider.js'],
     body,
   });
 }
@@ -200,7 +201,7 @@ ${hero({
   <div class="wrap stack" style="gap: 56px">
     <div class="section-head center">
       <span class="eyebrow">What I'm building</span>
-      <h2 class="h2 reveal">Spaces where women<br>can <em class="s">grow whole</em></h2>
+      <h2 class="h2 reveal">Spaces where women <br>can <em class="s">grow whole</em></h2>
       <p class="lede">My work blends African wellness, storytelling and faith-driven principles to help others live healthy, whole and grace-filled lives, with intention and balance across faith, family and purpose.</p>
     </div>
     <div class="card-grid">
@@ -217,7 +218,7 @@ ${hero({
     <img class="photo reveal" src="/images/kneeling-prayer.jpg" alt="Leya kneeling on grass with hands clasped in prayer" style="height: clamp(420px, 55vw, 620px); object-position: 70% center; background: var(--hero-dark)" loading="lazy">
     <div class="stack">
       <span class="eyebrow">What grounds me</span>
-      <h2 class="h2 reveal">The moments that<br><em class="s">matter most</em></h2>
+      <h2 class="h2 reveal">The moments that <br><em class="s">matter most</em></h2>
       <p class="lede">When I'm not working, you'll find me grounded in the things that remind me what truly counts.</p>
       <ol class="numbered-list">
         <li><span>Time with my family</span><span class="num">01</span></li>
@@ -443,7 +444,7 @@ ${hero({
             <a class="btn btn-outline" style="align-self: center" href="/contact#form">Send another</a>
           </div>`
         : html`<form class="form-grid" method="post" action="/contact" novalidate>
-            ${errors.length > 0 && html`<div class="form-error full" role="alert">${errors.map((e) => html`${e}<br>`)}</div>`}
+            ${errors.length > 0 && html`<div class="form-error full" role="alert">${errors.map((e) => html`${e} <br>`)}</div>`}
             <label class="field">Your name<input name="name" type="text" required autocomplete="name" placeholder="Full name" value="${values.name}"></label>
             <label class="field">Email<input name="email" type="email" required autocomplete="email" placeholder="you@email.com" value="${values.email}"></label>
             <label class="field full">What's it about?
