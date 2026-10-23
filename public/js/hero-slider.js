@@ -7,7 +7,7 @@ document.querySelectorAll('[data-slider]').forEach((hero) => {
   const pauseBtn = hero.querySelector('.slider-pause');
   if (slides.length < 2) return;
 
-  const DELAY = 6000;
+  const DELAY = 3000;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   let index = 0;
   let timer = null;
