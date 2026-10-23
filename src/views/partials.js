@@ -56,11 +56,32 @@ export function siteNav(current) {
 }
 
 // Framed hero: photo in a rounded frame, nav on top, content bottom-left.
-export function hero({ current, image, pos = 'center', shade = 0.45, label, minHeight = 600, body }) {
-  return html`<header class="hero" style="--hero-h: ${minHeight}px">
-    <div class="hero-photo" role="img" aria-label="${label}" style="--img: url('${image}'); --pos: ${pos}; --shade: ${shade}"></div>
+const photoStyle = (s) => `--img: url('${s.image}'); --pos: ${s.pos || 'center'}; --pos-m: ${s.posMobile || s.pos || 'center'}; --shade: ${s.shade ?? 0.45}`;
+
+// Framed hero: photo in a rounded frame, nav on top, content bottom-left.
+// Pass `slides` instead of a single image for a crossfading slideshow. The
+// first slide is what shows without JavaScript.
+export function hero({ current, image, pos = 'center', shade = 0.45, label, minHeight = 600, body, slides }) {
+  if (!slides) {
+    return html`<header class="hero" style="--hero-h: ${minHeight}px">
+    <div class="hero-photo" role="img" aria-label="${label}" style="${photoStyle({ image, pos, shade })}"></div>
     ${siteNav(current)}
     <div class="hero-body">${body}</div>
+  </header>`;
+  }
+  return html`<header class="hero has-slides" style="--hero-h: ${minHeight}px" data-slider>
+    <div class="hero-slides" role="group" aria-roledescription="slideshow" aria-label="Photos of Leya">
+      ${slides.map((s, i) => html`<div class="hero-photo${i === 0 ? ' is-active' : ''}" role="img" aria-roledescription="slide" aria-label="${s.label} (${i + 1} of ${slides.length})"${raw(i === 0 ? '' : ' aria-hidden="true"')} style="${photoStyle(s)}"></div>`)}
+    </div>
+    ${siteNav(current)}
+    <div class="hero-body">${body}</div>
+    <div class="slider-controls" role="group" aria-label="Slideshow controls">
+      ${slides.map((s, i) => html`<button type="button" class="slider-dot" data-slide="${i}" aria-label="Show photo ${i + 1} of ${slides.length}"${raw(i === 0 ? ' aria-current="true"' : '')}><span></span></button>`)}
+      <button type="button" class="slider-pause" aria-label="Pause slideshow" aria-pressed="false">
+        <svg class="i-pause" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+        <svg class="i-play" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+    </div>
   </header>`;
 }
 

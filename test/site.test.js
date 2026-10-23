@@ -134,3 +134,19 @@ test('uploads only accept real images', async () => {
   const { url } = await real.json();
   assert.equal((await get(url)).status, 200);
 });
+
+test('heading line breaks keep a space, since phones hide them', async () => {
+  for (const p of ['/', '/about', '/philanthropy', '/stories', '/contact']) {
+    const page = await (await get(p)).text();
+    for (const [h] of page.matchAll(/<h[12][^>]*>[\s\S]*?<\/h[12]>/g)) {
+      assert.doesNotMatch(h, /[^\s>]<br>/, `${p}: ${h}`);
+    }
+  }
+});
+
+test('home hero is a slideshow with the new photo', async () => {
+  const page = await (await get('/')).text();
+  assert.match(page, /data-slider/);
+  assert.match(page, /\/images\/gym-training\.jpg/);
+  assert.equal((page.match(/class="slider-dot"/g) || []).length, 2);
+});
