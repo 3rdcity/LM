@@ -215,7 +215,7 @@ ${hero({
 
 <section class="section">
   <div class="wrap split">
-    <img class="photo reveal" src="/images/kneeling-prayer.jpg" alt="Leya kneeling on grass with hands clasped in prayer" style="height: clamp(420px, 55vw, 620px); object-position: 70% center; background: var(--hero-dark)" loading="lazy">
+    <img class="photo reveal" src="/images/cable-row-training.jpg" alt="Leya in a cap and gym gloves, squatting low on a cable row machine" style="height: clamp(420px, 55vw, 620px); object-position: center 45%; background: var(--hero-dark)" loading="lazy">
     <div class="stack">
       <span class="eyebrow">What grounds me</span>
       <h2 class="h2 reveal">The moments that <br><em class="s">matter most</em></h2>
@@ -223,8 +223,8 @@ ${hero({
       <ol class="numbered-list">
         <li><span>Time with my family</span><span class="num">01</span></li>
         <li><span>Prayer</span><span class="num">02</span></li>
-        <li><span>Reflection</span><span class="num">03</span></li>
-        <li><span>Deep conversations</span><span class="num">04</span></li>
+        <li><span>Wellness</span><span class="num">03</span></li>
+        <li><span>Fitness</span><span class="num">04</span></li>
       </ol>
     </div>
   </div>
