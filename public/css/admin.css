@@ -199,6 +199,8 @@ tr:last-child td { border-bottom: 0; }
 /* Touch screens of any width get fingertip-sized targets. */
 @media (pointer: coarse) {
   .btn.small, .link-btn { min-height: 44px; }
+  .toolbar button { width: 44px; height: 44px; }
+  .field.compact input { min-height: 44px; }
   .link-btn { display: inline-flex; align-items: center; }
   .me a, .msg header a { display: inline-flex; align-items: center; min-height: 44px; }
   .me .stack { gap: 0; }

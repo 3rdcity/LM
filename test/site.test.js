@@ -51,10 +51,15 @@ test('no old brand name anywhere on the site', async () => {
 });
 
 test('drafts and future scheduled posts stay private', async () => {
+  // Its own far-future post, so the test can't expire the way a fixed date would.
+  const later = await store.createPost({ title: 'Not out yet', status: 'Published', date: '2999-01-01', category: 'Faith' });
+  assert.equal(later.status, 'Scheduled');
   const list = await (await get('/stories')).text();
-  assert.doesNotMatch(list, /Learning to pause/); // scheduled for later
+  assert.doesNotMatch(list, /Not out yet/);
   assert.doesNotMatch(list, /Grief doesn/); // draft
-  assert.equal((await get('/stories/learning-to-pause-before-you-react')).status, 404);
+  assert.equal((await get(`/stories/${later.slug}`)).status, 404);
+  assert.equal((await get('/stories/grief-doesnt-keep-to-a-timetable')).status, 404);
+  await store.deletePost(later.id);
 });
 
 test('scheduled posts go live on their date', () => {
