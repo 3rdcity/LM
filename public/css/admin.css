@@ -48,7 +48,9 @@ button:active, a:active { transform: scale(.98); }
 /* Shell */
 .admin { min-height: 100vh; display: flex; flex-wrap: wrap; align-items: stretch; }
 .sidebar { flex: 1 1 232px; max-width: 100%; background: var(--dark); color: #FFFFFF; padding: 28px 18px; display: flex; flex-direction: column; gap: 32px; }
-.brand { display: flex; align-items: baseline; gap: 10px; padding: 0 10px; font-size: 26px; font-weight: 500; }
+.brand { display: flex; align-items: baseline; gap: 10px; padding: 0 10px; font-size: 30px; font-weight: 500; }
+/* Same thicker logo as the public site. */
+.brand em.s { -webkit-text-stroke: 0.7px currentColor; }
 .brand span { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #B3B79A; font-weight: 400; }
 .brand.dark { padding: 0; color: var(--ink); }
 .brand.dark span { color: var(--muted); }

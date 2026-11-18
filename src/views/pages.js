@@ -206,7 +206,7 @@ ${hero({
     </div>
     <div class="card-grid ventures-4">
       ${aboutVenture(icons.heartPlus(24), 'Wellness Without Limits', 'Holistic wellness for women, rooted in African wellness traditions and faith.', wwlLink(), v.wellnessWithoutLimits ? 'Visit site ↗' : 'Learn more →')}
-      ${aboutVenture(icons.mic(24), 'The Unqualified Podcast', copy.podcastLine, v.podcast, 'Listen ↗')}
+      ${aboutVenture(icons.mic(24), 'Conversations with Leya', copy.podcastLine, v.podcast, 'Listen ↗')}
       ${aboutVenture(icons.globe(24), 'Arimah Travel &amp; Tours', copy.travelLine, v.arimahTravel, 'Visit site ↗')}
       ${aboutVenture(icons.house(24), 'The Arimah Foundation', copy.foundationLine, v.foundation || '/philanthropy#initiatives', 'Learn more →')}
     </div>
@@ -312,7 +312,7 @@ ${hero({
       ${initiative({ img: '/images/garden-pergola.jpg', alt: 'A quiet garden path under a vine-covered pergola', label: 'Foundation', title: 'The Arimah Foundation', text: copy.foundationMission, href: v.foundation, cta: 'About the foundation →' })}
       ${initiative({ id: 'wellness-without-limits', img: '/images/wwl-card.jpg', alt: 'A Wellness Without Limits card among fresh greens', pos: 'center 45%', label: 'My heart project', title: 'Wellness Without Limits', text: 'A celebration of health, hope and wellness. Bringing holistic, faith-rooted care to women, drawing on African wellness traditions.', href: v.wellnessWithoutLimits, cta: v.wellnessWithoutLimits && 'Visit Wellness Without Limits ↗' })}
       ${initiative({ img: '/images/reading-journal.jpg', alt: 'Leya reading her journal', pos: 'center 45%', label: 'Retreat', title: 'Her Secret Place', text: `A retreat for women to step away, rest and reconnect with faith. ${copy.retreatDetails}`, href: v.herSecretPlace, cta: 'Learn about the retreat →' })}
-      ${initiative({ img: '/images/eyes-closed-sunlight.jpg', alt: 'Leya with eyes closed in warm sunlight', pos: 'center 28%', label: 'Podcast', title: 'The Unqualified Podcast', text: "Honest conversations for anyone who has ever been made to feel they aren't enough. Free to listen, wherever you are.", href: v.podcast, cta: 'Listen now ↗' })}
+      ${initiative({ img: '/images/conversations-with-leya.jpg', alt: 'Leya smiling in a pink “Faith for the journey” breast cancer awareness T-shirt, holding a Conversations with Leya card', pos: 'center 22%', label: 'Podcast', title: 'Conversations with Leya', text: "Honest conversations for anyone who has ever been made to feel they aren't enough. Free to listen, wherever you are.", href: v.podcast, cta: 'Listen now ↗' })}
     </div>
   </div>
 </section>
