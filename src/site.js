@@ -66,7 +66,7 @@ export const site = {
     'Mentorship',
     'Wellness Without Limits',
     'Arimah Travel & Tours',
-    'The Unqualified Podcast',
+    'Conversations with Leya',
     'Arimah Foundation',
     'Media & press',
     'Something else',
