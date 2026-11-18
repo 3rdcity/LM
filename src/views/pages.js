@@ -126,7 +126,7 @@ ${latest.length > 0 && html`<section id="journal" class="section section-white">
       </div>
       <a class="btn btn-primary" href="/stories">All articles</a>
     </div>
-    <div class="post-grid">${latest.map((p) => postCard(p, { meta: false }))}</div>
+    <div class="post-grid teaser">${latest.map((p) => postCard(p, { meta: false }))}</div>
   </div>
 </section>`}
 </main>
@@ -204,7 +204,7 @@ ${hero({
       <h2 class="h2 reveal">Spaces where women <br>can <em class="s">grow whole</em></h2>
       <p class="lede">My work blends African wellness, storytelling and faith-driven principles to help others live healthy, whole and grace-filled lives, with intention and balance across faith, family and purpose.</p>
     </div>
-    <div class="card-grid">
+    <div class="card-grid ventures-4">
       ${aboutVenture(icons.heartPlus(24), 'Wellness Without Limits', 'Holistic wellness for women, rooted in African wellness traditions and faith.', wwlLink(), v.wellnessWithoutLimits ? 'Visit site ↗' : 'Learn more →')}
       ${aboutVenture(icons.mic(24), 'The Unqualified Podcast', copy.podcastLine, v.podcast, 'Listen ↗')}
       ${aboutVenture(icons.globe(24), 'Arimah Travel &amp; Tours', copy.travelLine, v.arimahTravel, 'Visit site ↗')}
