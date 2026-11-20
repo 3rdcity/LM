@@ -45,6 +45,8 @@ export const site = {
   },
 
   // Home hero and philanthropy impact numbers. Never ship invented figures.
+  // Not shown on the site for now: the sections that used them were removed
+  // until real figures are ready.
   stats: {
     peopleSupported: '[NUMBER]',
     womenReached: '[000]',
