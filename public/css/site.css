@@ -347,6 +347,9 @@ a:active, button:active { transform: scale(.98); }
 .socials { display: flex; flex-wrap: wrap; gap: 8px; }
 .socials a { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--ink); }
 .socials a:hover { border-color: var(--primary); transform: translateY(-2px); }
+.footer-top .socials { margin-top: 8px; }
+.socials.on-dark a { color: #FFFFFF; border-color: rgba(255, 255, 255, 0.3); }
+.socials.on-dark a:hover { color: #FFFFFF; border-color: #FFFFFF; background: rgba(255, 255, 255, 0.08); }
 
 /* =================================================== Journal + article */
 .journal-intro { padding-top: 80px; padding-bottom: 48px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px; }

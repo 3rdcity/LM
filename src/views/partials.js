@@ -31,12 +31,24 @@ export const icons = {
   instagram: (s) => svg('<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8"/>', s),
   facebook: (s) => svg('<path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/>', s),
   linkedin: (s) => svg('<rect x="3" y="9" width="4" height="12"/><circle cx="5" cy="4.5" r="1.8"/><path d="M11 21V9h4v2a4 4 0 0 1 7 3v7h-4v-6a2 2 0 0 0-4 0v6z"/>', s),
+  tiktok: (s) => svg('<path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.6 2.4 4.6 5 5"/>', s),
   youtube: (s) => svg('<rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/>', s),
   link: (s) => svg('<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>', s),
   play: (s) => raw(`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>`),
 };
 
 export const longArrow = raw('<svg width="176" height="8" viewBox="0 0 176 8" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 4h174M170 1l4 3-4 3"/></svg>');
+
+const SOCIAL = { instagram: 'Instagram', tiktok: 'TikTok', facebook: 'Facebook', linkedin: 'LinkedIn', youtube: 'YouTube' };
+
+// Social icons for every network with a link in site.js.
+export function socialLinks(extraClass = '') {
+  const links = Object.entries(SOCIAL).filter(([key]) => site.social[key]);
+  if (!links.length) return '';
+  return html`<div class="socials${extraClass ? ' ' + extraClass : ''}">
+    ${links.map(([key, name]) => html`<a href="${site.social[key]}" target="_blank" rel="noopener" aria-label="${site.owner} on ${name} (opens in a new tab)">${icons[key](18)}</a>`)}
+  </div>`;
+}
 
 export function siteNav(current) {
   return html`<nav class="site-nav" aria-label="Main">
@@ -108,6 +120,7 @@ export function footer({ path = '/', nl, blurb = 'Reflections on wellness, faith
         <div class="pitch">
           <strong>Gentle reads, <em class="s">once a month</em></strong>
           <p>${blurb}</p>
+          ${socialLinks('on-dark')}
         </div>
         <form class="newsletter" method="post" action="/subscribe">
           <label for="nl-email">Email address</label>

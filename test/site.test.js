@@ -155,3 +155,20 @@ test('home hero is a slideshow with the new photo', async () => {
   assert.match(page, /\/images\/gym-training\.jpg/);
   assert.equal((page.match(/class="slider-dot"/g) || []).length, 2);
 });
+
+test('social links show in the footer and on the contact page', async () => {
+  const want = [
+    'https://www.instagram.com/leya_mnangagwa/',
+    'https://www.tiktok.com/@leyamnangagwaofficial',
+    'https://www.facebook.com/61582356747996/',
+    'https://www.linkedin.com/in/leya-mnangagwa-232256389/',
+  ];
+  const contact = await (await get('/contact')).text();
+  const footer = (await (await get('/about')).text()).split('<footer')[1];
+  for (const url of want) {
+    assert.equal(contact.split(`href="${url}"`).length - 1, 2, `contact page + its footer: ${url}`);
+    assert.ok(footer.includes(`href="${url}" target="_blank" rel="noopener"`), `footer: ${url}`);
+  }
+  assert.doesNotMatch(contact, /aria-label="[^"]*YouTube/, 'no YouTube icon without a link');
+  assert.doesNotMatch(contact, /class="socials[^"]*">\s*<a href="#"/, 'no dead social links');
+});
