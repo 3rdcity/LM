@@ -1,6 +1,6 @@
 import { html, raw, formatDate } from './html.js';
 import { layout } from './layout.js';
-import { hero, barHeader, breadcrumb, footer, postCard, icons, longArrow } from './partials.js';
+import { hero, barHeader, breadcrumb, footer, postCard, icons, longArrow, socialLinks } from './partials.js';
 import { site, link } from '../site.js';
 import { readMinutes } from '../store.js';
 import { renderMarkdown } from '../markdown.js';
@@ -394,7 +394,6 @@ function initiative({ id, img, alt, pos = 'center', label, title, text, href, ct
 // ---------------------------------------------------------------- Contact
 export function contactPage({ sent, errors = [], values = {}, nl }) {
   const c = site.contact;
-  const s = site.social;
   const topic = values.topic || '';
   const body = html`
 ${hero({
@@ -426,12 +425,7 @@ ${hero({
       </div>
       <div class="stack" style="gap: 12px">
         <span style="font-size: 13px; color: var(--muted-2)">Follow along</span>
-        <div class="socials">
-          <a href="${link(s.instagram)}" aria-label="Instagram">${icons.instagram(18)}</a>
-          <a href="${link(s.facebook)}" aria-label="Facebook">${icons.facebook(18)}</a>
-          <a href="${link(s.linkedin)}" aria-label="LinkedIn">${icons.linkedin(18)}</a>
-          <a href="${link(s.youtube)}" aria-label="YouTube">${icons.youtube(18)}</a>
-        </div>
+        ${socialLinks()}
       </div>
     </div>
 

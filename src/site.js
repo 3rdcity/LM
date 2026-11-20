@@ -14,10 +14,13 @@ export const site = {
     replyDays: '[0]',
   },
 
+  // Shown as icons in the footer and on the contact page, in this order.
+  // A network set to null is left out.
   social: {
-    instagram: null,
-    facebook: null,
-    linkedin: null,
+    instagram: 'https://www.instagram.com/leya_mnangagwa/',
+    tiktok: 'https://www.tiktok.com/@leyamnangagwaofficial',
+    facebook: 'https://www.facebook.com/61582356747996/',
+    linkedin: 'https://www.linkedin.com/in/leya-mnangagwa-232256389/',
     youtube: null,
   },
 
