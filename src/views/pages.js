@@ -14,7 +14,7 @@ const wwlLink = () => site.ventures.wellnessWithoutLimits || '/philanthropy#well
 const arrow = (href) => (href.startsWith('http') ? '↗' : '→');
 
 export function homePage({ latest, nl }) {
-  const { ventures: v, copy, stats, video } = site;
+  const { ventures: v, copy, video } = site;
   const body = html`
 ${hero({
   current: 'home',
@@ -22,7 +22,6 @@ ${hero({
   slides: [
     { image: '/images/hero-wildflower-field.jpg', pos: '62% 35%', shade: 0.42, label: 'Leya with eyes closed and hands clasped, standing in a field of yellow wildflowers at golden hour' },
     { image: '/images/gym-training.jpg', pos: 'center 45%', posMobile: '40% center', shade: 0.34, label: 'Leya crouched low on a gym floor mid-workout, in a cap, gloves and camo leggings' },
-    { image: '/images/gym-cable-row-wide.jpg', pos: 'center 58%', imagePortrait: '/images/gym-cable-row.jpg', posPortrait: 'center 62%', posMobile: '30% center', shade: 0.38, label: 'Leya in a cap and gym gloves, squatting low on a cable row machine' },
   ],
   body: html`
     <div>
@@ -34,10 +33,6 @@ ${hero({
       </div>
     </div>
     <div class="hero-meta">
-      <div class="supported">
-        <span class="avatars" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span>${stats.peopleSupported}+ people supported</span>
-      </div>
       <div class="chips"><span class="chip">Faith-led</span><span class="chip">Wellness advocate</span></div>
     </div>`,
 })}
@@ -267,7 +262,7 @@ function aboutVenture(icon, title, text, href, cta) {
 
 // ---------------------------------------------------------------- Philanthropy
 export function philanthropyPage({ nl }) {
-  const { ventures: v, copy, stats } = site;
+  const { ventures: v, copy } = site;
   const donate = site.donateUrl;
   const body = html`
 ${hero({
@@ -328,12 +323,6 @@ ${hero({
       <div><span class="num">01</span><h3>Women's wellness</h3><p>Mind, body and spirit, cared for together. Practical support that meets women where they are.</p></div>
       <div><span class="num">02</span><h3>Strong families</h3><p>Healthy homes start with healthy parents. Helping families find balance between faith, work and each other.</p></div>
       <div><span class="num">03</span><h3>Faith &amp; community</h3><p>Creating spaces of belonging, where people can gather, pray, share stories and lift one another up.</p></div>
-    </div>
-    <div class="impact reveal">
-      <div><strong>${stats.womenReached}+</strong><span>Women reached</span></div>
-      <div><strong>${stats.retreatsHeld}</strong><span>Retreats &amp; events held</span></div>
-      <div><strong>${stats.communitiesServed}</strong><span>Communities served</span></div>
-      <div><strong>${stats.podcastEpisodes}</strong><span>Podcast episodes</span></div>
     </div>
   </div>
 </section>
