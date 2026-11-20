@@ -68,7 +68,10 @@ export function siteNav(current) {
 }
 
 // Framed hero: photo in a rounded frame, nav on top, content bottom-left.
-const photoStyle = (s) => `--img: url('${s.image}'); --pos: ${s.pos || 'center'}; --pos-m: ${s.posMobile || s.pos || 'center'}; --shade: ${s.shade ?? 0.45}`;
+// `imagePortrait` swaps in a tall photo on portrait screens (phones, upright
+// tablets), where a wide photo would be cropped hard.
+const photoStyle = (s) => `--img: url('${s.image}'); --pos: ${s.pos || 'center'}; --pos-m: ${s.posMobile || s.pos || 'center'}; --shade: ${s.shade ?? 0.45}`
+  + (s.imagePortrait ? `; --img-p: url('${s.imagePortrait}'); --pos-p: ${s.posPortrait || 'center'}` : '');
 
 // Framed hero: photo in a rounded frame, nav on top, content bottom-left.
 // Pass `slides` instead of a single image for a crossfading slideshow. The

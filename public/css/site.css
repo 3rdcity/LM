@@ -549,3 +549,11 @@ a:active, button:active { transform: scale(.98); }
   #give .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   #give .card-grid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
+
+/* Portrait screens use a slide's tall photo when it has one. */
+@media (orientation: portrait) {
+  .hero-photo::before { background-image: var(--img-p, var(--img)); }
+}
+@media (orientation: portrait) and (min-width: 721px) {
+  .hero-photo::before { background-position: var(--pos-p, var(--pos)); }
+}
