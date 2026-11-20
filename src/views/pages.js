@@ -22,7 +22,7 @@ ${hero({
   slides: [
     { image: '/images/hero-wildflower-field.jpg', pos: '62% 35%', shade: 0.42, label: 'Leya with eyes closed and hands clasped, standing in a field of yellow wildflowers at golden hour' },
     { image: '/images/gym-training.jpg', pos: 'center 45%', posMobile: '40% center', shade: 0.34, label: 'Leya crouched low on a gym floor mid-workout, in a cap, gloves and camo leggings' },
-    { image: '/images/gym-cable-row-wide.jpg', pos: 'center 58%', posMobile: '60% center', shade: 0.4, label: 'Leya in a cap and gym gloves, squatting low on a cable row machine in a bright gym' },
+    { image: '/images/gym-cable-row-wide.jpg', pos: 'center 58%', imagePortrait: '/images/gym-cable-row.jpg', posPortrait: 'center 62%', posMobile: '30% center', shade: 0.38, label: 'Leya in a cap and gym gloves, squatting low on a cable row machine' },
   ],
   body: html`
     <div>
