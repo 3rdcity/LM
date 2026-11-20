@@ -153,7 +153,8 @@ test('home hero is a slideshow with the new photo', async () => {
   const page = await (await get('/')).text();
   assert.match(page, /data-slider/);
   assert.match(page, /\/images\/gym-training\.jpg/);
-  assert.equal((page.match(/class="slider-dot"/g) || []).length, 2);
+  assert.equal((page.match(/class="slider-dot"/g) || []).length, 3);
+  assert.match(page, /\/images\/gym-cable-row-wide\.jpg/);
 });
 
 test('social links show in the footer and on the contact page', async () => {
