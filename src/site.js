@@ -40,8 +40,8 @@ export const site = {
     foundationLine: "[One line on the foundation's mission and who it serves.]",
     foundationMission: '[Mission statement: who the foundation serves, where it works and what it provides.]',
     retreatDetails: "[Add who it's for, how often it runs and how to attend.]",
-    authorRole: '[Role]',
-    authorBio: '[Short bio: qualifications, areas of focus, and what they enjoy about the work.]',
+    // Shown in the "Written by" box on Leya's posts.
+    authorBio: 'Leya Mnangagwa is a faith-led entrepreneur, wellness advocate, philanthropist, former model, and the CEO and founder of Arimah Travel and Tours.',
   },
 
   // Home hero and philanthropy impact numbers. Never ship invented figures.
