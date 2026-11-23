@@ -178,3 +178,17 @@ test('no stats sections until real figures are ready', async () => {
   assert.doesNotMatch(await (await get('/')).text(), /people supported|class="supported"/);
   assert.doesNotMatch(await (await get('/philanthropy')).text(), /class="impact|Women reached|Podcast episodes/);
 });
+
+test('article byline has no role, and Leya\'s posts carry her bio', async () => {
+  const page = await (await get('/stories/five-small-habits-that-take-the-edge-off-a-racing-mind')).text();
+  const byline = page.match(/<div class="byline">[\s\S]*?<\/div>/)[0];
+  assert.doesNotMatch(byline, /\[Role\]|<small>/);
+  assert.match(page, /<strong>Leya Mnangagwa<\/strong>/);
+  assert.match(page, /Leya Mnangagwa is a faith-led entrepreneur, wellness advocate, philanthropist, former model, and the CEO and founder of Arimah Travel and Tours\./);
+
+  const guest = await store.createPost({ title: 'Guest voice', author: 'Jane Guest', status: 'Published', category: 'Faith', body: 'Hello' });
+  const gp = await (await get(`/stories/${guest.slug}`)).text();
+  assert.match(gp, /<strong>Jane Guest<\/strong>/);
+  assert.doesNotMatch(gp, /faith-led entrepreneur/, 'no Leya bio under another author');
+  await store.deletePost(guest.id);
+});

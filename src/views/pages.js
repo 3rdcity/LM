@@ -515,7 +515,10 @@ export function articlePage({ post: p, more, preview, nl }) {
   const { copy } = site;
   const url = `${site.url}/stories/${p.slug}`;
   const share = encodeURIComponent(url);
-  const author = p.author || '[Author name]';
+  // Posts with no real author yet (blank or a [placeholder]) are Leya's. Her
+  // bio only shows on her own posts, never under someone else's name.
+  const isLeya = !p.author || /^\[.*\]$/.test(p.author.trim()) || p.author.trim().toLowerCase() === site.owner.toLowerCase();
+  const author = isLeya ? site.owner : p.author;
   const body = html`
 ${barHeader('stories')}
 ${preview && html`<div class="preview-bar" role="status">Preview · this post is <strong>${p.status.toLowerCase()}</strong>${p.status === 'Scheduled' ? ` for ${formatDate(p.date)}` : ''} and not visible to the public. <a href="/admin">Back to admin</a></div>`}
@@ -527,7 +530,7 @@ ${preview && html`<div class="preview-bar" role="status">Preview · this post is
   ${p.excerpt && html`<p class="standfirst">${p.excerpt}</p>`}
   <div class="byline">
     <span class="avatar" aria-hidden="true"></span>
-    <span class="stack" style="gap: 2px"><strong>${author}</strong><small>${copy.authorRole}</small></span>
+    <strong>${author}</strong>
     <span class="dot lead" aria-hidden="true">·</span>
     <span class="when">${p.date ? html`<time datetime="${p.date}">${formatDate(p.date)}</time>` : '[Date]'}<span class="dot" aria-hidden="true">·</span>${readMinutes(p.body)} min read</span>
   </div>
@@ -553,7 +556,7 @@ ${p.image && html`<figure class="article-hero"><img src="${p.image}" alt="${p.im
     <div class="stack" style="flex: 1 1 240px; gap: 8px">
       <span class="eyebrow">Written by</span>
       <strong>${author}</strong>
-      <p>${copy.authorBio}</p>
+      ${isLeya && html`<p>${copy.authorBio}</p>`}
       <a href="/about">View profile →</a>
     </div>
   </div>
